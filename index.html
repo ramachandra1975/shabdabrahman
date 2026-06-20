@@ -247,6 +247,16 @@ tr:hover td{background:rgba(201,168,106,0.03);}
       <a class="navlink" data-target="s-synthesis">११. उपसंहारः · Synthesis</a>
       <a class="navlink" data-target="s-references">१२. सन्दर्भाः · References</a>
     </div>
+    <div class="navgroup">
+      <div class="label">सङ्केतमातृका · Thesis Programme</div>
+      <a class="navlink" data-target="s-freqmodel">१३. स्वरतन्त्रविज्ञानम् · Frequency-Signature Model</a>
+      <a class="navlink" data-target="s-cranial">१४. तन्त्रिकामातृकानुबन्धः · Mātṛkā & Cranial Nerve Map</a>
+      <a class="navlink" data-target="s-bijacompress">१५. बीजसङ्केतविज्ञानम् · Bīja as Compressed State</a>
+      <a class="navlink" data-target="s-protocode">१६. मातृकाख्यसङ्केतसिद्धान्तः · Mātṛkā as Proto-Code</a>
+      <a class="navlink" data-target="s-ashtadhyayi">१७. अष्टाध्यायी-स्वचालन-यन्त्रम् · Aṣṭādhyāyī as Automaton</a>
+      <a class="navlink" data-target="s-entropy">१८. सङ्ख्याबीजसम्पीडनम् · Entropy & Compression</a>
+      <a class="navlink" data-target="s-convergence">१९. संश्लेषसूत्रम् · The Convergence Hypothesis</a>
+    </div>
   </nav>
 
   <!-- MAIN -->
@@ -268,6 +278,13 @@ tr:hover td{background:rgba(201,168,106,0.03);}
       <button class="tabbtn" data-target="s-casestudies">अध्ययनानि</button>
       <button class="tabbtn" data-target="s-synthesis">उपसंहार</button>
       <button class="tabbtn" data-target="s-references">सन्दर्भाः</button>
+      <button class="tabbtn" data-target="s-freqmodel">स्वरतन्त्र</button>
+      <button class="tabbtn" data-target="s-cranial">तन्त्रिकामातृका</button>
+      <button class="tabbtn" data-target="s-bijacompress">बीजसङ्केत</button>
+      <button class="tabbtn" data-target="s-protocode">सङ्केतसिद्धान्त</button>
+      <button class="tabbtn" data-target="s-ashtadhyayi">अष्टाध्यायी</button>
+      <button class="tabbtn" data-target="s-entropy">सम्पीडन</button>
+      <button class="tabbtn" data-target="s-convergence">संश्लेष</button>
     </div>
 
     <!-- ===================== SECTION CONTENT WILL BE INSERTED HERE ===================== -->
@@ -824,9 +841,280 @@ tr:hover td{background:rgba(201,168,106,0.03);}
 
       <div class="footer-nav">
         <span class="fn-btn" onclick="showSection('s-synthesis')">← उपसंहारः</span>
-        <span class="fn-btn" onclick="showSection('s-dhyana')">↺ Back to ध्यानम्</span>
+        <span class="fn-btn" onclick="showSection('s-freqmodel')">Next: स्वरतन्त्रविज्ञानम् →</span>
       </div>
     </section>
+
+<!-- ============ S13 FREQUENCY-SIGNATURE MODEL ============ -->
+<section class="section hidden" id="s-freqmodel">
+  <div class="eyebrow">अध्यायः १३ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">स्वरतन्त्रविज्ञानम्</span>Phoneme as Frequency-Signature: Toward a Formal Acoustic Model of Mātṛkā</h2>
+  <p class="lede">Chapters 1–9 established, on the tradition's own authority, that each mātṛkā carries a fixed sthāna, prayatna, bīja, and cakra-correlate. This chapter asks a question the tradition itself never needed to ask in these terms: can that fifty-two-fold matrix be redescribed, without loss, as a formal acoustic-cognitive coding system — a set of discrete, measurable frequency-signatures mapped onto a discrete set of physiological and (on present evidence) neural states? No published research programme currently attempts this mapping at the scale or rigor proposed here; what follows is offered explicitly as original synthesis and a working hypothesis for future doctoral inquiry, not as an established finding.</p>
+
+  <div class="panel">
+    <h3>The Gap This Chapter Identifies</h3>
+    <p>Modern acoustic phonetics (Chapter 2) gives precise spectrographic descriptions of every Sanskrit phoneme — formant frequencies, harmonic structure, voice-onset timing. Modern neuroscience gives precise descriptions of which cortical and subcortical networks activate during articulation and audition of speech sounds. Tantric mātṛkā theory (Chapter 3) gives a precise traditional assignment of each phoneme to a cakra and a bīja. <b>What has not been attempted in the literature surveyed for this study is a single formal model that treats these three datasets as one coordinate system</b> — i.e., a model in which a phoneme's acoustic signature (measurable in Hz and formant structure), its articulatory-neural correlate (measurable via EMG/fMRI of the relevant cranial nerve pathways), and its traditional cakra/bīja assignment are plotted against one another to see whether the traditional assignment correlates with anything acoustically or neurally non-arbitrary, or whether it is purely symbolic. This is the central gap this thesis programme proposes to close.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Proposed Formal Object: The Mātṛkā Tensor</h3>
+      <p>This study proposes representing each of the fifty-two mātṛkās not as a single symbol but as an ordered tuple across four measurable or codeable axes:</p>
+      <table>
+        <tr><th>Axis</th><th>Type of Data</th><th>Source</th></tr>
+        <tr><td>Acoustic signature</td><td>F1/F2/F3 formants, fundamental frequency range, harmonic density</td><td>Spectrographic measurement (empirical)</td></tr>
+        <tr><td>Articulatory locus</td><td>Sthāna/prayatna as a discrete place+manner feature vector</td><td>Pāṇinian phonetics (textual, formal)</td></tr>
+        <tr><td>Neuro-motor pathway</td><td>Cranial nerve(s) and muscle groups recruited</td><td>Speech-motor neuroscience (empirical)</td></tr>
+        <tr><td>Traditional assignment</td><td>Cakra petal, bīja, rasa/vṛtti correlate</td><td>Tantric and Nāṭyaśāstric sources (textual, symbolic)</td></tr>
+      </table>
+      <p style="font-size:14.5px; color:var(--text-faint);">Calling this a "tensor" here is a structural metaphor for an ordered multi-axis data object, not a claim that mātṛkās behave as mathematical tensors in any physical sense; the term is used to signal that the four axes are proposed to be studied jointly rather than separately, which is the actual novel move.</p>
+    </div>
+    <div class="panel">
+      <h3>What Would Make This Testable</h3>
+      <p>A model is only as good as its falsifiability. This chapter proposes three concrete, checkable predictions a future study could test against the existing tradition's own claims:</p>
+      <ul style="padding-left:18px; font-size:15px; line-height:1.9;">
+        <li><b>Prediction 1 (clustering):</b> if cakra-assignment tracks anything acoustically real rather than being purely symbolic-positional (i.e., simply assigned in alphabetical/varga order, as Chapter 3 itself partly concedes), phonemes within a traditional cakra-group should show measurably tighter acoustic similarity (formant distance) to one another than to phonemes in other cakra-groups, beyond what is already explained by shared place of articulation.</li>
+        <li><b>Prediction 2 (nasal/bindu class):</b> nasal-class mātṛkās (the five nasals plus anusvāra) should show a measurably distinct EMG/vibration signature in the perinasal sinus region compared with non-nasal consonants of the same place of articulation — a prediction Chapter 2's case studies partly support but have not tested phoneme-by-phoneme.</li>
+        <li><b>Prediction 3 (rasa-vṛtti grouping):</b> phonemes traditionally grouped under a given vṛtti (Chapter 7) should cluster by articulatory effort/voicing/aspiration features in a way separable by standard phonetic feature analysis, independent of any rasa-theoretic assumption — testing whether Bharata's vṛtti-to-rasa mapping has an acoustic floor or is a purely aesthetic convention.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Honest Statement of Novelty and Risk</h3>
+    <p>The individual components of this model are well established — acoustic phonetics of Sanskrit, neuroscience of articulation, and the textual record of mātṛkā-nyāsa are each independently documented. <b>The novel claim of this chapter is the proposal to formally cross-tabulate all three</b>, which to the compiler's knowledge has not been published as a unified empirical research programme. The principal risk, stated plainly: traditional cakra/bīja assignment may turn out to be entirely symbolic-positional (assigned by where a letter sits in the varga sequence rather than by any acoustic property), in which case Predictions 1–3 would fail, and that negative result would itself be a genuine and useful finding — distinguishing, with actual data for the first time, the phonemes whose traditional placement appears to track something physically real from those whose placement is best read as symbolic architecture. Either outcome advances the field; this is precisely why it is offered here as a thesis question rather than a foregone conclusion.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-references')">← सन्दर्भाः</span>
+    <span class="fn-btn" onclick="showSection('s-cranial')">Next: तन्त्रिकामातृकानुबन्धः →</span>
+  </div>
+</section>
+
+<!-- ============ S14 CRANIAL NERVE MAP ============ -->
+<section class="section hidden" id="s-cranial">
+  <div class="eyebrow">अध्यायः १४ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">तन्त्रिकामातृकानुबन्धः</span>Mātṛkā and the Cranial Nerve Map: Articulation as Neuro-Topology</h2>
+  <p class="lede">If Chapter 13 proposes the formal coordinate system, this chapter populates one of its axes in anatomical detail: which specific cranial nerves and muscle groups are recruited to produce each class of mātṛkā, and whether the traditional sthāna (place of articulation) classification — devised many centuries before any concept of a cranial nerve existed — nonetheless tracks the actual neuro-anatomical division of labour with surprising precision.</p>
+
+  <div class="panel">
+    <h3>The Cranial Nerves of Articulation: A Working Inventory</h3>
+    <table>
+      <tr><th>Cranial Nerve</th><th>Primary Articulatory Role</th><th>Mātṛkā Classes Most Dependent on It</th></tr>
+      <tr><td>V — Trigeminal</td><td>Jaw movement, palate tension, sensory feedback from lips/tongue/palate</td><td>All classes (jaw aperture for vowels; palatal/dental precision for consonants)</td></tr>
+      <tr><td>VII — Facial</td><td>Lip closure and shaping, cheek tension</td><td>Oṣṭhya (labial) class — pa, pha, ba, bha, ma; rounded vowels u, ū, o, au</td></tr>
+      <tr><td>IX — Glossopharyngeal</td><td>Pharyngeal constriction, soft palate elevation, swallow-related coordination</td><td>Mūrdhanya (retroflex) and visarga; supports velopharyngeal closure for nasals</td></tr>
+      <tr><td>X — Vagus</td><td>Vocal fold tension/closure (via recurrent laryngeal branch), respiratory pacing, soft palate</td><td>Voicing distinction across every varga (ghoṣa/aghoṣa); breath-paced recitation generally (Chapter 2's slow-breathing mechanism)</td></tr>
+      <tr><td>XI — Accessory</td><td>Postural support to sustain head/neck position through long recitation</td><td>Indirect — relevant to sustained multi-hour pāṭha (Chapter 5), not phoneme-specific</td></tr>
+      <tr><td>XII — Hypoglossal</td><td>Tongue body and tip movement — the single most articulatorily active nerve</td><td>Tālavya, dantya, mūrdhanya classes; the entire antastha (semivowel) group</td></tr>
+    </table>
+    <p style="font-size:14.5px; color:var(--text-faint);">This table compiles established speech-motor neuroanatomy (cranial nerve function is textbook clinical neurology) and applies it phoneme-by-phoneme to the Sanskrit varṇamālā specifically. The cranial-nerve functions themselves are not new science; their systematic, full-alphabet cross-mapping onto Pāṇinian sthāna categories is the contribution proposed here.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Where Pāṇinian Sthāna and Neuro-Anatomy Converge Cleanly</h3>
+      <p>The convergence is strongest, and least surprising, at the periphery: <b>oṣṭhya</b> (labial) sounds map almost one-to-one onto facial nerve (VII) lip function, and <b>nāsikya</b> (nasal) sounds map cleanly onto vagal/glossopharyngeal control of velopharyngeal closure. This is not a deep discovery — any articulatory phonetics textbook implies as much — but it has, to the compiler's knowledge, not been laid out as an explicit cranial-nerve-by-cranial-nerve table against the full fifty-two-letter mātṛkā set with the Tantric correlates retained alongside it, which is what this chapter newly assembles as a reference instrument for further study.</p>
+    </div>
+    <div class="panel">
+      <h3>Where the Mapping Gets Genuinely Interesting: the Hypoglossal Concentration</h3>
+      <p>The more striking and, as far as this compilation can establish, unremarked-upon pattern is this: a disproportionate share of the mātṛkā set — the entire dantya, tālavya, and mūrdhanya series, plus all four antastha semivowels — depends primarily on fine hypoglossal (tongue) control rather than on the lips, jaw, or larynx. If the traditional cakra-assignment of Chapter 3 is overlaid on this fact, the bulk of the Anāhata, Maṇipūra, and Svādhiṣṭhāna petal-groups turn out to be hypoglossal-dominant sounds, while only the Mūlādhāra and Ājñā groups draw more heavily on vagal/glossal and glottal control respectively. <b>Whether this concentration is a meaningful pattern or simply an artefact of how many consonant places of articulation involve the tongue in any language</b> (tongue involvement is in fact unusually high across most spoken languages, not unique to Sanskrit) is exactly the kind of question this thesis programme proposes to test rather than assert — flagged here honestly as an open, unverified observation rather than a finding.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Proposed Method for Future Work: EMG-Synchronised Recitation Study</h3>
+    <p>A concrete, fundable study design follows directly from this chapter: surface or fine-wire EMG of the relevant muscle groups (orbicularis oris for labials, genioglossus/styloglossus for tongue-dependent classes, levator veli palatini for nasal/oral distinction) recorded synchronously with audio spectrography while trained reciters articulate isolated mātṛkās and full pāṭha sequences. This would, for the first time, generate a quantitative cranial-nerve-activation signature per phoneme that could be directly checked against both the acoustic axis of Chapter 13's model and the traditional cakra/bīja axis — closing the loop between Pāṇinian articulatory theory, Tantric symbolic assignment, and twenty-first-century neuromuscular measurement in a single dataset that, as far as this study's research has established, does not yet exist in the published literature.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-freqmodel')">← स्वरतन्त्रविज्ञानम्</span>
+    <span class="fn-btn" onclick="showSection('s-bijacompress')">Next: बीजसङ्केतविज्ञानम् →</span>
+  </div>
+</section>
+
+<!-- ============ S15 BIJA AS COMPRESSED STATE ============ -->
+<section class="section hidden" id="s-bijacompress">
+  <div class="eyebrow">अध्यायः १५ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">बीजसङ्केतविज्ञानम्</span>Bīja as Compressed Cognitive State: A Working Hypothesis</h2>
+  <p class="lede">Chapter 4 described the bīja mantra as a single phoneme held to "concentrate the acoustic/subtle essence" of a deity or intention. This chapter reframes that traditional claim in cognitive-science vocabulary as a specific, testable hypothesis: that a bīja functions, for a trained reciter, as a learned, highly compressed retrieval cue — a single acoustic-motor token bound through extensive repetition to a complex, multi-component mental state (visualisation, affect, intention, somatic posture) that would otherwise require far more information to specify explicitly.</p>
+
+  <div class="panel">
+    <h3>The Borrowed Concept: Chunking and Cue-Compression in Cognitive Science</h3>
+    <p>Cognitive psychology has long established that extensive practice allows complex, multi-element procedures to become bound to a single retrieval cue — a phenomenon studied under headings including chunking, proceduralisation, and cue-dependent memory. A chess grandmaster does not consciously recompute a position from first principles; a single glance retrieves a compressed, previously-trained pattern. <b>This chapter's proposal is that bīja-japa, considered purely as a cognitive phenomenon and bracketing any metaphysical claim, is structurally the same kind of compression</b>: years of paired repetition (phoneme + visualisation + breath + intention) plausibly bind the single acoustic event to the full multi-component state, so that uttering "klīṁ" or "hrīṁ" for an advanced practitioner may retrieve, in compressed form, what would take a novice paragraphs of explicit instruction to reconstruct.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Why This Has Not Been Studied This Way</h3>
+      <p>The cognitive-science literature on expertise, chunking, and cue-compression is extensive but has — as far as this compilation's research has been able to establish — never been applied specifically to bīja-mantra practice as a formal case study, despite bīja-japa being an unusually clean real-world instance of the phenomenon: a single, short, repeatable acoustic token, practised for measurable durations (japa counts are literally counted and recorded across a practitioner's lifetime via mālā repetition logs in many lineages), bound to an explicit, textually documented target state (the dhyāna-śloka describing what the deity/bīja is meant to evoke). Few domains offer this combination of a precisely defined cue, an explicitly documented target representation, and a practitioner population with decades of quantifiable repetition history.</p>
+    </div>
+    <div class="panel">
+      <h3>A Proposed Operational Test: Compression Should Show Up as Speed and Specificity</h3>
+      <p>If the compression hypothesis is correct, it generates a directly testable prediction that distinguishes it from a null hypothesis of "japa is just calming, regardless of content": <b>advanced practitioners of a specific bīja should show faster and more specific psychophysiological/neural response onset to that bīja than to (a) a phonetically matched but practice-novel control syllable, or (b) the same bīja heard passively rather than self-articulated</b> — a response-time and specificity signature, not merely a generic relaxation response. This is distinguishable in principle using EEG event-related-potential latency or fMRI rapid-event designs, comparing trained reciters against matched novices on their respective trained vs. untrained bīja.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>What This Would and Would Not Establish</h3>
+    <p>Confirming this hypothesis would establish that bīja-japa functions, among other things, as an unusually efficient learned compression-and-retrieval system for a complex mental/emotional state — a genuinely novel contribution bridging Tantric sādhana methodology and cognitive science's account of expertise. <b>It would not, and is not claimed here to, establish or test the further Tantric metaphysical claim</b> that the bīja independently carries the deity's "subtle essence" prior to and independent of the practitioner's trained association — that claim belongs, as Chapter 11 already states for the document as a whole, to a philosophical register this study reports but does not purport to verify. The value of the cognitive-science reframing proposed here is specifically that it isolates a sub-component of the traditional claim that actually is testable, without either reducing the whole tradition to "just placebo" or smuggling in the untestable metaphysical claim as if it had been confirmed.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-cranial')">← तन्त्रिकामातृकानुबन्धः</span>
+    <span class="fn-btn" onclick="showSection('s-protocode')">Next: मातृकाख्यसङ्केतसिद्धान्तः →</span>
+  </div>
+</section>
+
+<!-- ============ S16 MATRIKA AS PROTO-CODE ============ -->
+<section class="section hidden" id="s-protocode">
+  <div class="eyebrow">अध्यायः १६ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">मातृकाख्यसङ्केतसिद्धान्तः</span>Mātṛkā as Proto-Code: Pāṇini, Error-Correction, and the Pāṭha System Reread as Checksums</h2>
+  <p class="lede">Chapter 5 described the krama, jaṭā, and ghana recitation patterns as "redundancy as fidelity engineering" and explicitly called the pāṭha system one of the oldest deliberately engineered information-integrity systems in human history. This chapter takes that observation, which Chapter 5 stated descriptively, and proposes to formalise it rigorously against modern information theory's actual definitions — treating the pāṭha system as a genuine, analysable error-correcting code rather than a loose analogy.</p>
+
+  <div class="panel">
+    <h3>The Formal Claim, Stated Precisely</h3>
+    <p>In information theory, an error-correcting code adds structured redundancy to a message so that corruption of some transmitted symbols can be detected and, within limits, corrected by checking the corrupted stream against the redundant structure. <b>This chapter's proposed formal claim is that krama-pāṭha is functionally analogous to a low-order, overlapping parity scheme</b>: by re-reciting each word pair (1-2, 2-3, 3-4...) the system creates exactly the kind of overlapping redundancy that allows a listener (the traditional role of the supervising teacher checking a student's recitation) to detect a single dropped or transposed word, because that word's absence or displacement will create a detectable mismatch across two adjacent pair-recitations rather than one. Jaṭā-pāṭha, with its more elaborate forward-backward-forward pattern, increases this redundancy further, functionally resembling a higher-order check; ghana-pāṭha, the most complex permutation, is structurally the densest check in the traditional system.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>What Can Be Measured, Precisely, If This Claim Is Taken Seriously</h3>
+      <p>Stated this formally, the claim becomes testable rather than merely evocative. A future study could compute, for an actual Vedic text and an actual historically attested transmission-error rate (where comparative manuscript and recension evidence exists), the following standard information-theoretic quantities applied to each pāṭha type:</p>
+      <ul style="padding-left:18px; font-size:15px; line-height:1.9;">
+        <li><b>Code rate:</b> the ratio of "new" information to total recited syllables in krama/jaṭā/ghana versus plain saṁhitā-pāṭha — i.e., precisely how much redundancy each pāṭha type actually adds, expressed as a number, not an impression.</li>
+        <li><b>Minimum detectable error distance:</b> the smallest transposition or omission error that each pāṭha pattern is structurally guaranteed to surface, analogous to the "Hamming distance" concept used to describe how many bit-errors a given code can detect or correct.</li>
+        <li><b>Comparative redundancy efficiency:</b> how the pāṭha system's redundancy-to-overhead ratio compares with known historical and modern error-correcting schemes (e.g. simple parity checks, repetition codes) — not to claim equivalence with modern digital coding theory, but to give a precise, citable number to what Chapter 5 currently states only descriptively.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Why This Specific Formalisation Is Original</h3>
+      <p>That Vedic recitation methods preserve oral text with high fidelity is well documented and already cited via UNESCO recognition (Chapter 5). <b>What is not, to this compilation's knowledge, available in the published literature is an actual information-theoretic quantification</b> of exactly how much redundancy each pāṭha type contributes and exactly what class of error each is structurally capable of catching — the difference between saying "this is like a checksum" (a true but loose statement already implicit in Chapter 5) and actually computing the equivalent of a code rate and minimum error-detection distance for krama, jaṭā, and ghana as formally distinct, rankable error-correction strategies. That computation, applied across the actual fifty-two-letter mātṛkā inventory and real Vedic textual samples, is the specific contribution proposed for future doctoral work here.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>A Caution Worth Stating Plainly</h3>
+    <p>The pāṭha system was not designed by anyone with access to modern coding theory, and describing it in these terms is a deliberate retrospective formalisation, not a claim that the Vedic tradition "anticipated" Claude Shannon. The value of the formalisation is methodological: it converts an already-true and already-celebrated cultural fact (the pāṭha system preserves text with remarkable fidelity) into a precisely measurable one, which is the kind of conversion that makes a humanities observation legible and citable within a computational-linguistics or information-theory thesis committee — likely the actual practical value of this chapter for the broader project being proposed.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-bijacompress')">← बीजसङ्केतविज्ञानम्</span>
+    <span class="fn-btn" onclick="showSection('s-ashtadhyayi')">Next: अष्टाध्यायी-स्वचालन-यन्त्रम् →</span>
+  </div>
+</section>
+
+<!-- ============ S17 ASHTADHYAYI AS AUTOMATON ============ -->
+<section class="section hidden" id="s-ashtadhyayi">
+  <div class="eyebrow">अध्यायः १७ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">अष्टाध्यायी-स्वचालन-यन्त्रम्</span>The Aṣṭādhyāyī as Finite-State Generative Grammar</h2>
+  <p class="lede">Pāṇini's Aṣṭādhyāyī (c. 4th century BCE) is widely and correctly noted in computational linguistics as a precursor to generative grammar formalism — this much is established scholarship, not a new claim of this study. What this chapter proposes as its original contribution is narrower and more specific: applying that comparison directly and exhaustively to the fifty-two-fold mātṛkā set and its Śivasūtra encoding (the pratyāhāra system), to produce a formal automaton-style model of the mātṛkā inventory itself — something the existing Pāṇini-and-computation literature has not, to this study's knowledge, done with the mātṛkā set specifically as its object.</p>
+
+  <div class="panel">
+    <h3>What Is Already Established Scholarship (Properly Attributed)</h3>
+    <p>The observation that Pāṇinian grammar resembles a formal generative system is genuine prior scholarship, most associated with work in computational linguistics from the latter twentieth century onward comparing the Aṣṭādhyāyī's rule-ordering and metarule conventions to context-sensitive rewrite systems and, in some treatments, to finite-state transducers used in modern natural-language-processing pipelines. This study does not claim to originate that comparison and cites it as established background; what follows is explicitly the further, narrower step proposed as new for this thesis programme.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>The Śivasūtras as a State-Compression Device</h3>
+      <p>Pāṇini's fourteen Śivasūtras arrange the mātṛkā phonemes into a specific sequence (the same fifty-two-odd letters treated symbolically throughout this study) precisely so that the pratyāhāra system can name any contiguous sub-sequence of that ordering with just two letters — the first letter of a span and a designated marker letter immediately after its end. This is, formally, a span-compression addressing scheme: instead of listing every member of a needed phoneme class explicitly in a grammatical rule, Pāṇini's rules reference spans like "aṇ" or "ac" and the addressed sub-sequence is recovered by traversing the fixed Śivasūtra ordering. <b>This chapter proposes describing this explicitly as a minimal perfect hash-like addressing scheme over a fixed alphabet</b> — a structure that lets a finite, small set of two-character labels uniquely address an exponentially larger number of possible phoneme subsets, which is exactly the kind of space-efficient addressing problem modern data-structure design also solves, independently, for unrelated reasons.</p>
+    </div>
+    <div class="panel">
+      <h3>Proposed Construction: A Formal State-Machine Diagram of the Mātṛkā Inventory</h3>
+      <p>The concrete deliverable this chapter proposes for future work is a complete, explicit finite-state-style diagram of the Śivasūtra ordering and its pratyāhāra spans, annotated simultaneously with: (a) each phoneme's Pāṇinian sthāna/prayatna class (Chapter 3), (b) its traditional cakra/bīja correlate (Chapter 3), and (c) its pratyāhāra group membership(s) under Pāṇini's own system. No such tri-layered diagram — formal grammatical, articulatory-phonetic, and Tantric-symbolic, overlaid on the single Śivasūtra ordering — currently exists in the published literature surveyed for this study, and constructing it rigorously (rather than the loose verbal cross-references this chapter and Chapter 3 currently offer) is proposed as a concrete, scoped, achievable first deliverable for the broader thesis programme.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Why the Mātṛkā-Specific Version Matters Beyond Pāṇini Scholarship</h3>
+    <p>Existing computational-linguistics treatments of Pāṇini are typically interested in the Aṣṭādhyāyī as a model for grammar engineering in general — they treat the phoneme inventory as incidental machinery in service of the grammar, not as an object of independent interest. <b>This study's proposed contribution inverts that emphasis</b>: by holding the grammatical formalism fixed and reading the phoneme inventory itself — the same fifty-two mātṛkās carrying cakra, bīja, and rasa correlates throughout this entire document — as the primary object, this chapter connects a respected strand of computational Pāṇini scholarship directly to the Tantric/Nāṭyaśāstric material of Chapters 1–9 for what appears, from this study's research, to be the first time such a direct three-way connection (formal grammar theory ↔ Tantric phonology ↔ aesthetic theory) has been attempted on the mātṛkā set as a unified object.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-protocode')">← मातृकाख्यसङ्केतसिद्धान्तः</span>
+    <span class="fn-btn" onclick="showSection('s-entropy')">Next: सङ्ख्याबीजसम्पीडनम् →</span>
+  </div>
+</section>
+
+<!-- ============ S18 ENTROPY AND COMPRESSION ============ -->
+<section class="section hidden" id="s-entropy">
+  <div class="eyebrow">अध्यायः १८ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">सङ्ख्याबीजसम्पीडनम्</span>Entropy, Redundancy, and the Economy of the Fifty-Two: A Compression-Theoretic Reading of the Varṇamālā</h2>
+  <p class="lede">This chapter closes the proto-information-theory arc by applying Shannon entropy directly to the mātṛkā inventory itself: asking, in precise quantitative terms, how much "information" the fifty-two-letter set actually carries as a phonological inventory, how efficiently Sanskrit text uses that inventory, and whether the traditional division into sixteen vowels plus thirty-six consonants reflects anything entropically distinctive compared with other classical phonemic inventories — a direct, computable question this study has not found addressed in existing comparative phonology in these specific terms.</p>
+
+  <div class="panel">
+    <h3>Shannon Entropy as the Relevant Tool</h3>
+    <p>Shannon entropy measures, in bits, the average information content of a symbol drawn from a known probability distribution — concretely, how unpredictable the next symbol is, given the frequency of all symbols in the system. Applied to a phonemic inventory, zero-order entropy simply reflects how evenly used the fifty-two mātṛkās are in actual recited/written Sanskrit (an alphabet where every letter is used equally often carries more entropy per symbol than one dominated by a few very frequent letters); higher-order entropy additionally accounts for how predictable a phoneme is given the one or two phonemes preceding it — capturing the real structure of Sanskrit phonotactics (legal consonant clusters, sandhi rules) rather than treating each letter as independent.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>The Specific Computable Questions This Chapter Proposes</h3>
+      <ul style="padding-left:18px; font-size:15px; line-height:1.9;">
+        <li><b>Zero-order entropy of the mātṛkā set</b> computed from actual frequency counts across a representative Vedic and classical corpus — giving, for the first time in a form usable for this thesis programme, a precise bits-per-phoneme figure for Sanskrit specifically, comparable to published entropy figures for other languages' phoneme inventories.</li>
+        <li><b>Second- and third-order conditional entropy</b>, capturing how much sandhi and permitted-cluster rules (themselves already exhaustively formalised by Pāṇini, per Chapter 17) reduce the effective information-per-phoneme below the zero-order figure — a direct, quantitative link between Pāṇinian phonotactic rules and modern information-theoretic redundancy measurement.</li>
+        <li><b>Comparative entropy positioning:</b> placing Sanskrit's computed entropy figures alongside published entropy estimates for other phonemic inventories (where such published estimates exist for comparable classical/liturgical languages) to ask, empirically rather than impressionistically, whether the fifty-two-mātṛkā system is unusually information-dense, unusually redundant, or unremarkable by ordinary cross-linguistic standards once actually measured — an honest test that could just as easily deflate as confirm any claim of Sanskrit's special acoustic-informational status.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Why "Unremarkable" Would Still Be a Genuine Result</h3>
+      <p>This chapter deliberately does not presuppose that Sanskrit's phoneme inventory will prove entropically exceptional. <b>A finding that Sanskrit's measured entropy figures sit squarely within the normal cross-linguistic range</b> would be a real and useful result for this thesis programme: it would mean that whatever is distinctive about the mātṛkā tradition's claims (Chapters 1, 3, 9) is not explainable by the phoneme inventory carrying unusually high raw information content, sharpening the question toward the symbolic/ritual layer (cakra, bīja, rasa assignment) discussed in Chapters 13–17 as the locus of whatever is actually distinctive, rather than the raw acoustic inventory itself. Stating this in advance, before any computation is run, is intended as a safeguard against motivated reasoning in the eventual analysis — exactly the kind of pre-registered, falsifiable framing a doctoral committee would expect.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Connecting Back to the Pāṭha System of Chapter 16</h3>
+    <p>Chapter 16 proposed treating krama/jaṭā/ghana-pāṭha as analogous to error-correcting redundancy schemes; this chapter's entropy computation supplies the missing baseline those calculations require. An error-correcting code's efficiency can only be meaningfully assessed against the entropy of the underlying message — redundancy is "expensive" precisely in proportion to how much real information-per-symbol the base message already carries. Computing mātṛkā-level entropy here therefore is not a separate exercise from Chapter 16's proposed code-rate analysis but its quantitative precondition, binding Chapters 16–18 together as a single coherent, sequential research design rather than three independent technical exercises.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-ashtadhyayi')">← अष्टाध्यायी-स्वचालन-यन्त्रम्</span>
+    <span class="fn-btn" onclick="showSection('s-convergence')">Next: संश्लेषसूत्रम् →</span>
+  </div>
+</section>
+
+<!-- ============ S19 CONVERGENCE HYPOTHESIS / SYNTHESIS ============ -->
+<section class="section hidden" id="s-convergence">
+  <div class="eyebrow">अध्यायः १९ · सङ्केतमातृका · Thesis Programme</div>
+  <h2 class="title"><span class="dn">संश्लेषसूत्रम्</span>The Convergence Hypothesis: Toward a Unified Thesis Programme</h2>
+  <p class="lede">Chapters 13–18 proposed six separable lines of original inquiry: a formal frequency-cakra-neuro model (13), its cranial-nerve anatomical grounding (14), bīja as a cognitive-compression hypothesis (15), the pāṭha system as a formal error-correcting code (16), the Aṣṭādhyāyī's Śivasūtra ordering as a state-machine addressing scheme over the mātṛkā set (17), and a direct entropy computation of the varṇamālā itself (18). This closing chapter states explicitly what would have to be true for these six lines to converge into a single unified thesis, rather than remaining six adjacent but separate studies — and states with equal explicitness what is currently hypothesis, what is established background, and what original empirical work remains to be done.</p>
+
+  <div class="panel">
+    <h3>The Convergence Hypothesis, Stated as One Sentence</h3>
+    <p>If, and only if, Predictions 1–3 of Chapter 13 hold, the cranial-nerve concentration pattern of Chapter 14 proves non-trivial once language-general tongue-dependence is controlled for, the compression signature of Chapter 15 is observed in trained practitioners, the code-rate figures of Chapter 16 show krama/jaṭā/ghana adding redundancy in excess of what plain repetition would achieve, the Śivasūtra addressing scheme of Chapter 17 is shown to minimise total rule-length in a way that could not be achieved by an arbitrary phoneme ordering, and the entropy figures of Chapter 18 show the mātṛkā inventory's redundancy structure is specifically exploited (not merely coincidentally present) by Pāṇini's own rule system — <b>then the cumulative case would be that the Sanskrit grammatical-Tantric tradition independently discovered and operationalised, centuries before formal information theory or speech neuroscience existed, a genuinely efficient phonemic encoding-and-transmission system whose structure is partially legible using each of these modern formal tools separately.</b> This is the thesis the programme is designed to test, not a result it is permitted to assume.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>What Is Currently Established vs. Proposed</h3>
+      <table>
+        <tr><th>Status</th><th>Component</th></tr>
+        <tr><td style="color:var(--gold-bright);">Established</td><td>Sanskrit acoustic phonetics; cranial nerve function in speech; Pāṇini-as-generative-grammar comparison; UNESCO recognition of pāṭha fidelity; Shannon entropy as a formal tool</td></tr>
+        <tr><td style="color:var(--saffron);">Proposed / Original to this study</td><td>The four-axis mātṛkā tensor (Ch.13); the full cranial-nerve-by-mātṛkā table and its cakra overlay (Ch.14); bīja-as-compression as an explicit testable cognitive hypothesis (Ch.15); pāṭha system formalised as a measurable code-rate (Ch.16); Śivasūtra ordering formalised as a minimal-addressing scheme specifically over the symbolically-loaded mātṛkā set (Ch.17); entropy computation specific to the mātṛkā inventory cross-checked against pāṭha redundancy (Ch.18)</td></tr>
+        <tr><td style="color:var(--crimson-bright);">Not yet empirically tested by anyone, including this study</td><td>Every numbered prediction in Chapters 13–18; the convergence hypothesis stated above in its entirety</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>A Realistic Sequencing for the Actual Doctoral Programme</h3>
+      <ol style="padding-left:20px; font-size:15px; line-height:1.9;">
+        <li><b>Phase 1 (formal/textual, no data collection required):</b> Chapters 17 and 18 — the Śivasūtra addressing-scheme formalisation and the entropy computation — can be completed entirely from existing texts and corpora, and should be sequenced first as they require no human-subjects approval and establish the quantitative baseline the later chapters depend on.</li>
+        <li><b>Phase 2 (corpus-historical):</b> Chapter 16's pāṭha code-rate analysis, drawing on existing recension/manuscript comparison literature, is the next most tractable, since it likewise requires no new human-subjects data collection.</li>
+        <li><b>Phase 3 (human-subjects empirical):</b> Chapters 13–15 (acoustic-neuro clustering, EMG/cranial-nerve mapping, and bīja-compression response-latency testing) require IRB-approved human-subjects research with trained reciters and matched controls, and should be planned as the final, most resource-intensive phase, building directly on the formal predictions Phases 1–2 will have already sharpened.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Closing Statement for This Section</h3>
+    <p>Chapters 1–12 of this resource presented the Sanskrit ritual, grammatical, and performance tradition's account of sound on its own terms, checked at every available point against what independent modern measurement has and has not yet shown (Chapter 10–11). Chapters 13–19 extend that same disciplined habit — naming clearly what is established, what is original proposal, and what remains untested — into a specific, scoped, falsifiable thesis programme treating the fifty-two mātṛkās simultaneously as acoustic objects, neuro-anatomical events, cognitive-compression cues, and formally codeable symbols. No claim is made here that this programme has been completed, or that its central convergence hypothesis is already true; the claim made is narrower and, the compiler believes, defensible: that this specific combination of formal tools has not yet been brought to bear on this specific traditional material in the way proposed here, and that doing so rigorously is a genuinely open and worthwhile research direction.</p>
+  </div>
+
+  <div class="footer-nav">
+    <span class="fn-btn" onclick="showSection('s-entropy')">← सङ्ख्याबीजसम्पीडनम्</span>
+    <span class="fn-btn" onclick="showSection('s-dhyana')">↺ Back to ध्यानम्</span>
+  </div>
+</section>
 
     </div>
 
