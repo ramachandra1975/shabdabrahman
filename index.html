@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शब्दब्रह्मविमर्शः · Śabda‑Brahman & the Science of Sacred Sound | Cultural Musings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#c9a86a;
+  --gold-bright:#e8cb8a;
+  --crimson:#7a1f2b;
+  --crimson-bright:#9c2c3a;
+  --bg:#0e0a08;
+  --panel:#17120f;
+  --panel-2:#1d1713;
+  --border:#3a2e22;
+  --text:#e8ddc8;
+  --text-dim:#a89884;
+  --text-faint:#7a6c5a;
+  --cream:#f3ead6;
+  --saffron:#d9883f;
+  --indigo:#3d4a6b;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'EB Garamond', serif;
+  font-size:18px;
+  line-height:1.7;
+  background-image:
+    radial-gradient(ellipse at top left, rgba(122,31,43,0.08), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(201,168,106,0.06), transparent 60%);
+}
+.dn{font-family:'Noto Serif Devanagari', serif;}
+h1,h2,h3,h4,.display{font-family:'Cinzel', serif; letter-spacing:0.02em;}
+.cg{font-family:'Cormorant Garamond', serif;}
+
+/* ===== LAYOUT ===== */
+.app{display:flex; min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{
+  width:280px; flex-shrink:0;
+  background:linear-gradient(180deg, #120d0a, #0a0706);
+  border-right:1px solid var(--border);
+  position:sticky; top:0; height:100vh; overflow-y:auto;
+  padding:28px 0 40px;
+}
+.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border); border-radius:4px;}
+.brand{padding:0 24px 22px; border-bottom:1px solid var(--border); margin-bottom:18px;}
+.brand .om{font-size:34px; color:var(--gold-bright); display:block; margin-bottom:6px;}
+.brand h1{font-size:15px; color:var(--cream); line-height:1.35; letter-spacing:0.04em;}
+.brand p{font-family:'Cormorant Garamond', serif; font-size:13px; color:var(--text-faint); margin-top:6px; font-style:italic;}
+.navgroup{margin-bottom:4px;}
+.navgroup .label{
+  font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--text-faint); padding:14px 24px 6px;
+}
+.navlink{
+  display:block; padding:9px 24px; color:var(--text-dim);
+  text-decoration:none; font-size:14.5px; border-left:2px solid transparent;
+  transition:all .15s ease; cursor:pointer;
+}
+.navlink:hover{color:var(--gold-bright); background:rgba(201,168,106,0.05);}
+.navlink.active{color:var(--gold-bright); border-left-color:var(--crimson-bright); background:rgba(122,31,43,0.12);}
+.navlink .dn{font-size:14px; margin-right:4px;}
+
+/* MAIN */
+.main{flex:1; min-width:0;}
+.breadcrumb{
+  position:sticky; top:0; z-index:30;
+  background:rgba(14,10,8,0.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:12px 40px; font-size:13px; color:var(--text-faint);
+  display:flex; align-items:center; gap:8px;
+}
+.breadcrumb span.cur{color:var(--gold);}
+.tabbar{
+  position:sticky; top:41px; z-index:29;
+  display:flex; overflow-x:auto; gap:0;
+  background:var(--panel); border-bottom:1px solid var(--border);
+}
+.tabbar::-webkit-scrollbar{height:4px;}
+.tabbtn{
+  flex-shrink:0; padding:13px 20px; font-size:13.5px; color:var(--text-dim);
+  background:none; border:none; cursor:pointer; white-space:nowrap;
+  border-bottom:2px solid transparent; font-family:'EB Garamond', serif; letter-spacing:0.03em;
+}
+.tabbtn:hover{color:var(--gold-bright);}
+.tabbtn.active{color:var(--gold-bright); border-bottom-color:var(--crimson-bright); background:rgba(122,31,43,0.08);}
+
+.section{padding:54px 56px 70px; max-width:1180px;}
+.section.hidden{display:none;}
+.eyebrow{
+  font-family:'Cinzel'; font-size:11.5px; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--saffron); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:''; width:28px; height:1px; background:var(--saffron);}
+h2.title{font-size:34px; color:var(--cream); margin-bottom:8px; line-height:1.25;}
+h2.title .dn{color:var(--gold-bright); display:block; font-size:30px; margin-bottom:6px;}
+.lede{font-family:'Cormorant Garamond'; font-size:21px; color:var(--text-dim); font-style:italic; max-width:780px; margin:18px 0 36px; line-height:1.6;}
+
+.panel{
+  background:var(--panel); border:1px solid var(--border); border-radius:6px;
+  padding:26px 28px; margin-bottom:22px;
+}
+.panel h3{color:var(--gold-bright); font-size:18px; margin-bottom:12px; letter-spacing:0.02em;}
+.panel h4{color:var(--text); font-size:15.5px; margin:16px 0 8px; font-family:'Cinzel';}
+p{margin-bottom:14px;}
+p:last-child{margin-bottom:0;}
+.sanskrit-block{
+  font-family:'Noto Serif Devanagari'; font-size:22px; color:var(--cream);
+  background:var(--panel-2); border-left:3px solid var(--crimson-bright);
+  padding:16px 22px; margin:18px 0; border-radius:0 4px 4px 0; line-height:1.9;
+}
+.iast{font-family:'Cormorant Garamond'; font-style:italic; color:var(--gold); font-size:17px;}
+.gloss{color:var(--text-dim); font-size:15.5px; margin-top:6px;}
+
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+.tag{
+  display:inline-block; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+  padding:3px 9px; border-radius:3px; border:1px solid var(--border); color:var(--text-faint); margin-right:6px;
+}
+.tag.fire{border-color:var(--crimson); color:var(--crimson-bright);}
+.tag.gold{border-color:var(--gold); color:var(--gold-bright);}
+.tag.indigo{border-color:var(--indigo); color:#8fa3d9;}
+
+blockquote{
+  border-left:3px solid var(--gold); padding:10px 20px; margin:18px 0;
+  font-family:'Cormorant Garamond'; font-style:italic; font-size:19px; color:var(--text);
+  background:rgba(201,168,106,0.04);
+}
+blockquote cite{display:block; margin-top:8px; font-size:13px; color:var(--text-faint); font-style:normal;}
+
+table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px;}
+th{text-align:left; color:var(--gold-bright); font-family:'Cinzel'; font-size:12px; letter-spacing:0.05em; text-transform:uppercase; padding:10px 12px; border-bottom:1px solid var(--border);}
+td{padding:10px 12px; border-bottom:1px solid rgba(58,46,34,0.5); color:var(--text-dim);}
+tr:hover td{background:rgba(201,168,106,0.03);}
+
+/* MATRIKA GRID */
+.matrika-toolbar{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px;}
+.mfilter{
+  font-size:12.5px; padding:6px 13px; border-radius:14px; border:1px solid var(--border);
+  background:var(--panel); color:var(--text-dim); cursor:pointer; font-family:'EB Garamond';
+}
+.mfilter.active, .mfilter:hover{border-color:var(--crimson-bright); color:var(--gold-bright);}
+.mgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px;}
+.mcard{
+  background:var(--panel); border:1px solid var(--border); border-radius:6px;
+  padding:14px 12px; text-align:center; cursor:pointer; transition:all .15s;
+}
+.mcard:hover{border-color:var(--gold); transform:translateY(-2px);}
+.mcard .ak{font-family:'Noto Serif Devanagari'; font-size:30px; color:var(--gold-bright); display:block;}
+.mcard .iast{display:block; font-size:13px; margin-top:4px;}
+.mcard .grp{display:block; font-size:10px; color:var(--text-faint); margin-top:5px; text-transform:uppercase; letter-spacing:0.05em;}
+
+.modal-overlay{
+  display:none; position:fixed; inset:0; background:rgba(8,5,4,0.86); z-index:100;
+  align-items:flex-start; justify-content:center; padding:5vh 20px; overflow-y:auto;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--panel); border:1px solid var(--gold); border-radius:8px; max-width:680px; width:100%;
+  padding:32px 34px; position:relative; margin-bottom:5vh;
+}
+.modal-close{position:absolute; top:14px; right:18px; background:none; border:none; color:var(--text-dim); font-size:22px; cursor:pointer;}
+.modal .ak-big{font-family:'Noto Serif Devanagari'; font-size:64px; color:var(--gold-bright); line-height:1;}
+.modal .iast-big{font-family:'Cormorant Garamond'; font-style:italic; font-size:22px; color:var(--gold); margin-top:4px;}
+.modal-field{margin-top:16px;}
+.modal-field .fl{font-family:'Cinzel'; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--saffron); margin-bottom:4px;}
+.modal-field .fv{color:var(--text); font-size:15.5px; line-height:1.65;}
+
+.cs-card{background:var(--panel); border:1px solid var(--border); border-radius:6px; padding:24px 26px; margin-bottom:20px;}
+.cs-card .cs-num{font-family:'Cinzel'; color:var(--crimson-bright); font-size:13px; letter-spacing:0.1em;}
+.cs-card h3{margin-top:6px;}
+.cs-meta{display:flex; gap:14px; flex-wrap:wrap; margin:10px 0 14px; font-size:13px; color:var(--text-faint);}
+.cs-meta b{color:var(--text-dim); font-weight:600;}
+
+.refs{font-size:14.5px; color:var(--text-dim); line-height:2;}
+.refs li{margin-bottom:6px; padding-left:6px;}
+
+.footer-nav{display:flex; justify-content:space-between; margin-top:50px; padding-top:24px; border-top:1px solid var(--border);}
+.fn-btn{color:var(--gold); text-decoration:none; font-size:14px; cursor:pointer;}
+.fn-btn:hover{color:var(--gold-bright);}
+
+@media(max-width:860px){
+  .sidebar{position:fixed; left:-280px; transition:left .2s; z-index:50;}
+  .sidebar.open{left:0;}
+  .section{padding:36px 20px 60px;}
+  .grid2,.grid3{grid-template-columns:1fr;}
+}
+.menu-toggle{display:none;}
+@media(max-width:860px){
+  .menu-toggle{display:block; position:fixed; bottom:20px; right:20px; z-index:60; width:46px; height:46px; border-radius:50%; background:var(--crimson); color:var(--cream); border:none; font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="om dn">ॐ</span>
+      <h1>शब्दब्रह्मविमर्शः<br><span style="font-size:12px;color:var(--text-dim);font-weight:400;">Śabda‑Brahman & the Science of Sacred Sound</span></h1>
+      <p>culturalmusings.com</p>
+    </div>
+    <div class="navgroup">
+      <div class="label">Opening</div>
+      <a class="navlink" data-target="s-dhyana"><span class="dn">ॐ</span> ध्यानम् · Invocation</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Foundations</div>
+      <a class="navlink" data-target="s-shabdabrahman">१. शब्दब्रह्म · Śabda‑Brahman</a>
+      <a class="navlink" data-target="s-science">२. ध्वनिविज्ञानम् · Physics of Sound</a>
+      <a class="navlink" data-target="s-matrikatheory">३. मातृकान्यासः · Mātṛkā Theory</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Ritual & Recitation</div>
+      <a class="navlink" data-target="s-yajna">४. यज्ञहोमौ · Yajña & Homa Acoustics</a>
+      <a class="navlink" data-target="s-svadhyaya">५. स्वाध्यायः · Vedic Recitation Method</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Nāṭyaśāstra</div>
+      <a class="navlink" data-target="s-natyashastra">६. नाट्यशास्त्रम् · Sound in Dance</a>
+      <a class="navlink" data-target="s-rasa">७. रसनिष्पत्तिः · Rasa via Nāda</a>
+      <a class="navlink" data-target="s-mudra">८. हस्तमुद्राः · Hasta & Phoneme</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">द्विपञ्चाशन्मातृकाः</div>
+      <a class="navlink" data-target="s-matrikagrid">९. The 52 Mātṛkās · Individual Study</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Evidence</div>
+      <a class="navlink" data-target="s-casestudies">१०. प्रायोगिकाध्ययनानि · 6 Case Studies</a>
+    </div>
+    <div class="navgroup">
+      <div class="label">Synthesis</div>
+      <a class="navlink" data-target="s-synthesis">११. उपसंहारः · Synthesis</a>
+      <a class="navlink" data-target="s-references">१२. सन्दर्भाः · References</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="breadcrumb">
+      culturalmusings.com <span style="color:var(--border)">/</span> <span class="cur" id="crumb">ध्यानम्</span>
+    </div>
+    <div class="tabbar" id="tabbar">
+      <button class="tabbtn" data-target="s-dhyana">ध्यानम्</button>
+      <button class="tabbtn" data-target="s-shabdabrahman">शब्दब्रह्म</button>
+      <button class="tabbtn" data-target="s-science">ध्वनिविज्ञान</button>
+      <button class="tabbtn" data-target="s-matrikatheory">मातृकान्यास</button>
+      <button class="tabbtn" data-target="s-yajna">यज्ञहोम</button>
+      <button class="tabbtn" data-target="s-svadhyaya">स्वाध्याय</button>
+      <button class="tabbtn" data-target="s-natyashastra">नाट्यशास्त्र</button>
+      <button class="tabbtn" data-target="s-rasa">रस</button>
+      <button class="tabbtn" data-target="s-mudra">मुद्रा</button>
+      <button class="tabbtn" data-target="s-matrikagrid">५२ मातृकाः</button>
+      <button class="tabbtn" data-target="s-casestudies">अध्ययनानि</button>
+      <button class="tabbtn" data-target="s-synthesis">उपसंहार</button>
+      <button class="tabbtn" data-target="s-references">सन्दर्भाः</button>
+    </div>
+
+    <!-- ===================== SECTION CONTENT WILL BE INSERTED HERE ===================== -->
+    <div id="sections-root">
+
+    <!-- ============ S0 DHYANA ============ -->
+    <section class="section" id="s-dhyana">
+      <div class="eyebrow">आरम्भः · Invocation</div>
+      <h2 class="title"><span class="dn">ॐ नादब्रह्मणे नमः</span>Before the Word, the Vibration</h2>
+      <div class="sanskrit-block">
+        नादब्रह्म विदुर्विप्रा नादब्रह्मैव शाङ्करः ।<br>
+        नादबिन्दुकलातीतं तस्मै श्रीगुरवे नमः ॥
+      </div>
+      <p class="lede">The learned know nāda as Brahman itself; nāda is verily Śaṅkara (Śiva). Salutations to that Guru who is beyond nāda, bindu, and kalā — the unstruck source from which all struck sound proceeds.</p>
+
+      <div class="panel">
+        <h3>About this resource</h3>
+        <p>This study examines a single proposition that runs through Vedānta, Tantra, Saṅgīta-śāstra, and the Nāṭyaśāstra alike: that articulated sound (<span class="iast">śabda</span>) is not a secondary, conventional sign system laid over a silent world, but a vibratory continuum (<span class="iast">spanda</span>) that is itself a mode of consciousness — <span class="iast">śabda‑brahman</span>. Every phoneme of Sanskrit, organised into the fifty‑two‑fold mātṛkā‑varṇamālā, is treated in this tradition as a discrete frequency‑signature with a specific point of articulation in the body, a specific seed‑syllable (bīja) correspondence, a specific presiding deity, and a specific psychophysiological effect on the reciter, the dancer, and the listening environment alike.</p>
+        <p>The chapters that follow move from philosophical foundation (Śabda‑Brahman in Bhartṛhari, the Āgamas, and Advaita) through the physical acoustics of how sound actually propagates and entrains biological tissue, into the ritual technologies of yajña and homa where mantra is treated as a precision instrument, into the Nāṭyaśāstra's own account of how the dancer's body becomes a resonating chamber for rasa, and finally into an individual treatment of all fifty‑two mātṛkās — their articulation, their bīja, their Tantric and Nāṭyaśāstric correlates, and what contemporary acoustic and neuroscientific literature has begun to say about comparable phenomena. Six documented case studies close the study with material that can be checked against the cited sources.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">A note on method: where this study draws on modern clinical or acoustic literature, the studies are named and dated so they can be independently verified; where it presents the testimony of the Sanskrit tradition itself, this is presented as the tradition's own internal account rather than as an external scientific claim. The two registers are kept distinct throughout, and the concluding synthesis discusses explicitly where they converge, where they merely resemble one another, and where caution is warranted.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel" style="text-align:center;">
+          <div class="dn" style="font-size:30px;color:var(--gold-bright);">५२</div>
+          <div style="font-size:13px;color:var(--text-faint);margin-top:6px;">Mātṛkā phonemes individually treated</div>
+        </div>
+        <div class="panel" style="text-align:center;">
+          <div class="dn" style="font-size:30px;color:var(--gold-bright);">६</div>
+          <div style="font-size:13px;color:var(--text-faint);margin-top:6px;">Medical / scientific case studies</div>
+        </div>
+        <div class="panel" style="text-align:center;">
+          <div class="dn" style="font-size:30px;color:var(--gold-bright);">१२</div>
+          <div style="font-size:13px;color:var(--text-faint);margin-top:6px;">Chapters, Dhyāna to References</div>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <span></span>
+        <span class="fn-btn" onclick="showSection('s-shabdabrahman')">Next: शब्दब्रह्म →</span>
+      </div>
+    </section>
+
+    <!-- ============ S1 SHABDA BRAHMAN ============ -->
+    <section class="section hidden" id="s-shabdabrahman">
+      <div class="eyebrow">अध्यायः १ · Foundations</div>
+      <h2 class="title"><span class="dn">शब्दब्रह्म</span>Śabda‑Brahman: Sound as the Substance of Reality</h2>
+      <p class="lede">In Sanskrit metaphysics, sound is not a vehicle carrying meaning from one mind to another; it is offered as the very fabric out of which the manifest universe is held to condense.</p>
+
+      <div class="panel">
+        <h3>The Grammarian's Brahman: Bhartṛhari's Vākyapadīya</h3>
+        <p>The fullest philosophical statement of this idea comes from the 5th‑century grammarian‑philosopher Bhartṛhari, whose <i>Vākyapadīya</i> opens with the declaration that Brahman is without beginning or end, that its essence is the Word (<span class="iast">śabda‑tattva</span>), and that it is from this Word‑principle that the apparent diversity of objects unfolds. On this account, language is not appended to a prior, mute world of things; rather, the capacity to differentiate "this from that" is itself linguistic in structure, so that thought, perception, and speech are three expressions of a single underlying <span class="iast">śabda‑tattva</span>.</p>
+        <div class="sanskrit-block" style="font-size:19px;">अनादिनिधनं ब्रह्म शब्दतत्त्वं यदक्षरम् ।<br>विवर्ततेऽर्थभावेन प्रक्रिया जगतो यतः ॥</div>
+        <p class="gloss">Brahman is without beginning or end, its essential nature is the imperishable Word‑principle; it evolves into the form of objects/meanings, from which the process of the world proceeds. (<i>Vākyapadīya</i> 1.1)</p>
+        <p>Bhartṛhari further distinguishes three levels at which this Word‑principle becomes audible speech: <span class="iast">paśyantī</span> (the "seeing" stage, an undivided flash of intended meaning, prior to sequence), <span class="iast">madhyamā</span> (the intermediate, mental stage where the utterance begins to take sequential shape), and <span class="iast">vaikharī</span> (the fully externalised, audible stage — what the ear actually hears). Tantric phonology adds a fourth, most subtle stage beneath all three: <span class="iast">parā vāk</span>, the undifferentiated potential of speech identified with the Goddess herself prior to any movement at all.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>The Four Levels of Speech (Vāk)</h3>
+          <table>
+            <tr><th>Level</th><th>Character</th><th>Locus</th></tr>
+            <tr><td><span class="iast">parā</span></td><td>Undifferentiated, transcendent potential</td><td>Mūlādhāra / beyond body</td></tr>
+            <tr><td><span class="iast">paśyantī</span></td><td>"Seen" as a single intuitive flash</td><td>Nābhi / heart</td></tr>
+            <tr><td><span class="iast">madhyamā</span></td><td>Internally sequenced, not yet spoken</td><td>Hṛdaya / throat region</td></tr>
+            <tr><td><span class="iast">vaikharī</span></td><td>Externalised, audible articulation</td><td>Mouth, palate, lips</td></tr>
+          </table>
+          <p style="font-size:14.5px;">This fourfold scheme, drawn from the Tantric Āgamas and absorbed into later grammar and aesthetics alike, treats ordinary speech (<span class="iast">vaikharī</span>) as merely the last, most condensed crystallisation of a subtler vibratory process that begins in the deepest, most unmanifest stratum of consciousness.</p>
+        </div>
+        <div class="panel">
+          <h3>Mātṛkā: the "Little Mothers" of the Alphabet</h3>
+          <p>The fifty‑two phonemes of the Sanskrit varṇamālā are, in this framework, not arbitrary acoustic units but <span class="iast">mātṛkā</span> — "little mothers" — because they are held to be the generative matrix from which all named, differentiated reality (<span class="iast">nāma‑rūpa</span>) is born. The Goddess in her sound‑form is called <span class="iast">Mātṛkā‑śakti</span>, and the Lalitā‑sahasranāma itself addresses her as one whose very body is composed of the fifty‑one (or fifty‑two) letters — <span class="iast">mūla‑mantrātmikā</span>, <span class="iast">pañcāśat‑pīṭha‑rūpiṇī</span>. Each phoneme correlates traditionally with one of the fifty‑one or fifty‑two Śakti‑pīṭhas, binding geography, body, and sound into a single symbolic lattice.</p>
+          <p>This is also why Tantric initiation frequently includes <span class="iast">mātṛkā‑nyāsa</span> — the ritual "placing" of each letter‑sound on a specific part of the practitioner's body through touch and recitation together, treating the body itself as a living alphabet and the alphabet as a subtle body.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Advaita's Qualification: Śabda‑Brahman as Apara, not Para</h3>
+        <p>Advaita Vedānta, particularly as systematised after Śaṅkara, accepts the category of <span class="iast">śabda‑brahman</span> but is careful to distinguish it from the absolutely attributeless Brahman (<span class="iast">nirguṇa, parabrahman</span>) that is the final teaching of the Upaniṣads. Śabda‑Brahman — identified with Praṇava, the syllable <span class="iast">Oṁ</span>, and with the Veda as a totality of sound — is treated as <span class="iast">aparā vidyā</span>, the lower or preparatory knowledge: an immensely powerful meditative support (<span class="iast">ālambana</span>) that purifies and stills the mind so that it becomes fit to recognise the silent, attributeless reality that sound itself ultimately points beyond. The <i>Māṇḍūkya Upaniṣad</i>'s analysis of Oṁ into the mātrās A‑U‑M plus the silent fourth (<span class="iast">amātra</span>, turīya) is the classical statement of this: the audible syllable is the doorway, and the soundless awareness after the sound has stopped is the goal.</p>
+          <blockquote>सर्वं ह्येतद् ब्रह्मायमात्मा ब्रह्म सोऽयमात्मा चतुष्पात् ।<br>All this verily is Brahman; this Self is Brahman; this very Self has four quarters.<cite>Māṇḍūkya Upaniṣad 2</cite></blockquote>
+        <p>This distinction matters for the present study: the claim that recitation, mantra, and dance generate measurable, beneficial vibration is a claim made confidently within the Śabda‑Brahman / Tantric framework about the structure of manifest reality; it is not identical with the further Advaitic claim that ultimate reality is itself beyond all sound. Both registers will be kept visible throughout rather than collapsed into one another.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-dhyana')">← ध्यानम्</span>
+        <span class="fn-btn" onclick="showSection('s-science')">Next: ध्वनिविज्ञानम् →</span>
+      </div>
+    </section>
+
+    <!-- ============ S2 SCIENCE ============ -->
+    <section class="section hidden" id="s-science">
+      <div class="eyebrow">अध्यायः २ · Foundations</div>
+      <h2 class="title"><span class="dn">ध्वनिविज्ञानम्</span>The Physics of Sound and Its Hold on Living Tissue</h2>
+      <p class="lede">Before any claim about mantra or rasa can be assessed, it helps to be exact about what sound physically is, and by which known mechanisms it can act on a body or a room.</p>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Sound as Mechanical Wave</h3>
+          <p>Sound is a longitudinal pressure wave: a vibrating source (vocal folds, a struck bell, a plucked string) compresses and rarefies the surrounding medium in a periodic pattern. Three physical parameters carry almost the whole of its perceptual and physiological effect: <b>frequency</b> (cycles per second, heard as pitch), <b>amplitude</b> (heard as loudness, and physically as pressure/energy), and <b>waveform/harmonic content</b> (heard as timbre — the mix of overtones above the fundamental that gives a human "ā" or a tambūrā drone its particular character).</p>
+          <p>The human range of hearing spans roughly 20 Hz–20,000 Hz. The fundamental frequency of normal adult speech sits low in this range (roughly 85–180 Hz for male voices, 165–255 Hz for female voices), but sustained vowel chanting, because it is held far longer and far more steadily than conversational speech, builds up a much denser, more periodic harmonic structure than ordinary talking — closer in its physical profile to a sustained musical drone than to speech.</p>
+        </div>
+        <div class="panel">
+          <h3>Resonance and Entrainment</h3>
+          <p>Two mechanisms are physically uncontroversial and are the load‑bearing concepts for everything that follows in this study:</p>
+          <p><b>Resonance:</b> every physical structure — a room, a bell, a body cavity, a string — has natural frequencies at which it vibrates with minimal input energy. A sound source at or near that frequency transfers energy into the structure far more efficiently than an "off‑resonant" sound. The human skull, sinuses, and chest cavity have their own resonant ranges, which is why sustained low‑frequency humming (as in <span class="iast">prāṇava</span> chanting) is felt as a palpable vibration in the face and chest, not merely heard.</p>
+          <p><b>Entrainment:</b> independent oscillators placed near one another (two pendulum clocks on a shared wall, two adjacent neurons, or a population of neurons exposed to a steady rhythmic stimulus) tend, over time, to synchronise their phase to the stronger or more regular oscillator. In neuroscience this is documented as <i>neural entrainment</i>: rhythmic auditory stimulation — for instance binaural beats or steady drumming — can shift cortical oscillatory power toward the stimulus frequency, measurable on EEG. This is an active, still‑developing research area, not a settled mechanism for every claim made about chanting, and the case studies in Chapter 10 are explicit about which findings are well‑replicated and which are preliminary.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>What Sustained Vocalisation Does to the Body: Established Physiology</h3>
+        <div class="grid3">
+          <div>
+            <h4>Respiratory pacing</h4>
+            <p style="font-size:15px;">Mantra and Vedic recitation are built on long, controlled exhalations punctuated by brief inhalations. This is physiologically a slow‑breathing practice; slow paced breathing in the region of 4.5–6.5 breaths per minute is independently documented to increase heart‑rate‑variability and engage the parasympathetic (vagal) branch of the autonomic nervous system.</p>
+          </div>
+          <div>
+            <h4>Laryngeal & cranial vibration</h4>
+            <p style="font-size:15px;">Humming and nasal consonants (m, n, ṅ, ñ, ṇ) generate measurable mechanical vibration in the nasal cavity and paranasal sinuses. This is the physical, uncontroversial basis beneath the Tantric claim that nasal/bindu‑class sounds "activate" the upper face and skull; what remains a research question is the downstream physiological significance of that vibration (see Case Study 4, Chapter 10).</p>
+          </div>
+          <div>
+            <h4>Vocal fold proprioception</h4>
+            <p style="font-size:15px;">Precise articulation at each of the traditional points of contact (see Chapter 3) requires fine motor control of the tongue, lips, soft palate, and glottis — a complex sensorimotor task that engages a wide cortical network well beyond the auditory cortex, including motor‑planning and proprioceptive regions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Acoustics of the Performance Space (Yajñaśālā and Nāṭyamaṇḍapa)</h3>
+        <p>Both Vedic ritual architecture and the Nāṭyaśāstra's own prescriptions for the playhouse (<span class="iast">nāṭyamaṇḍapa</span>, described in Chapter 2 of the Nāṭyaśāstra) are sensitive to room acoustics in a manner continuous with modern architectural acoustics: enclosed, proportioned spaces with hard reflective surfaces and a compact audience‑to‑stage distance were specified precisely because reverberant energy and direct sound both affect intelligibility of the spoken/sung word and the felt intensity of low‑frequency tones such as the mṛdaṅga and the sustained drone of the tambūrā or śruti box. A yajña enclosure, similarly, is a bounded, often symmetrical structure in which the priest's voice and the fire's own crackling and roaring acoustics combine in a reasonably controlled acoustic field — the architectural logic of "contained resonance" recurs in both contexts.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-shabdabrahman')">← शब्दब्रह्म</span>
+        <span class="fn-btn" onclick="showSection('s-matrikatheory')">Next: मातृकान्यासः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S3 MATRIKA THEORY ============ -->
+    <section class="section hidden" id="s-matrikatheory">
+      <div class="eyebrow">अध्यायः ३ · Foundations</div>
+      <h2 class="title"><span class="dn">मातृकान्यासः</span>The Architecture of the Fifty‑Two: How the Tradition Classifies Its Own Alphabet</h2>
+      <p class="lede">Before Chapter 9 treats each phoneme individually, this chapter lays out the four classificatory grids the tradition itself uses — grids drawn directly from Pāṇinian/Śaiva phonetics (<span class="iast">śikṣā</span>) and from Tantric mātṛkā‑nyāsa — so that the entries that follow can be read against a stable framework rather than as isolated curiosities.</p>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>1. Sthāna — Point of Articulation</h3>
+          <p>Sanskrit phonetics (the <span class="iast">śikṣā</span> texts, e.g. the Pāṇinīya‑śikṣā) classify every sound by exactly where in the vocal tract it is produced — a classification that maps with notable precision onto modern articulatory phonetics:</p>
+          <table>
+            <tr><th>Sthāna</th><th>Region</th><th>Phonemes</th></tr>
+            <tr><td>कण्ठ्य Kaṇṭhya</td><td>Throat/glottis</td><td>a, ā, k‑varga, ḥ, visarga</td></tr>
+            <tr><td>तालव्य Tālavya</td><td>Hard palate</td><td>i, ī, c‑varga, y, ś</td></tr>
+            <tr><td>मूर्धन्य Mūrdhanya</td><td>Cerebral/retroflex</td><td>ṛ, ṝ, ṭ‑varga, r, ṣ</td></tr>
+            <tr><td>दन्त्य Dantya</td><td>Teeth</td><td>l̥, t‑varga, l, s</td></tr>
+            <tr><td>ओष्ठ्य Oṣṭhya</td><td>Lips</td><td>u, ū, p‑varga</td></tr>
+            <tr><td>नासिक्य Nāsikya</td><td>Nasal passage</td><td>ṅ, ñ, ṇ, n, m, anusvāra</td></tr>
+          </table>
+        </div>
+        <div class="panel">
+          <h3>2. Prayatna — Effort/Manner</h3>
+          <p>Each sound is further classed by the manner of its production — open vs. constricted airflow, voiced vs. unvoiced, aspirated vs. unaspirated, and degree of breath force:</p>
+          <ul style="padding-left:18px; font-size:15px; line-height:2;">
+            <li><b>स्पर्श</b> (sparśa) — stops, full closure (k, c, ṭ, t, p classes)</li>
+            <li><b>अन्तस्थ</b> (antastha) — semivowels (y, r, l, v)</li>
+            <li><b>ऊष्म</b> (ūṣma) — sibilants/fricatives (ś, ṣ, s, h)</li>
+            <li><b>घोष/अघोष</b> — voiced / voiceless</li>
+            <li><b>अल्पप्राण/महाप्राण</b> — unaspirated / aspirated</li>
+          </ul>
+          <p style="font-size:14.5px; color:var(--text-faint);">This is the same descriptive grid (place + manner + voicing + aspiration) used by the IPA today; the Sanskrit grammarians arrived at a comparably exhaustive articulatory analysis many centuries earlier, organising the entire varṇamālā as a systematic matrix rather than an arbitrary list — which is itself part of why the tradition could treat the alphabet as a coherent "body."</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>3. Bīja & Cakra Correspondence</h3>
+          <p>In the Tantric/Kuṇḍalinī schema, each of the fifty‑two mātṛkās is assigned as a "petal" of one of the six principal cakras (with a 52nd/53rd accounting handled by repetition of certain letters across the thousand‑petalled Sahasrāra). This assignment is not uniform across every Tantric lineage — the Śrīvidyā, Kashmir Śaiva, and Haṭha‑yogic textual streams show minor variants — but the core scheme, used throughout this study, is:</p>
+          <table>
+            <tr><th>Cakra</th><th>Petals</th><th>Letters (representative)</th></tr>
+            <tr><td>मूलाधार Mūlādhāra</td><td>4</td><td>va, śa, ṣa, sa</td></tr>
+            <tr><td>स्वाधिष्ठान Svādhiṣṭhāna</td><td>6</td><td>ba–la</td></tr>
+            <tr><td>मणिपूर Maṇipūra</td><td>10</td><td>ḍa–pha</td></tr>
+            <tr><td>अनाहत Anāhata</td><td>12</td><td>ka–ṭha</td></tr>
+            <tr><td>विशुद्ध Viśuddha</td><td>16</td><td>a–aḥ (all vowels)</td></tr>
+            <tr><td>आज्ञा Ājñā</td><td>2</td><td>ha, kṣa</td></tr>
+          </table>
+          <p style="font-size:14.5px;">In this scheme, sounding a letter while visualising/feeling its associated lotus and cakra (mātṛkā‑nyāsa) is held to stimulate the corresponding subtle‑body centre — the basis of the chanting‑and‑gesture sequences still used in some Tantric and yogic initiation rites.</p>
+        </div>
+        <div class="panel">
+          <h3>4. Rasa & Nāṭyaśāstric Correlate</h3>
+          <p>The Nāṭyaśāstra's own treatment (developed most fully in its chapters on <span class="iast">svara</span>, <span class="iast">vṛtti</span>, and <span class="iast">pāṭhya</span>) does not map letters to rasa one‑to‑one in the rigid way later popular charts sometimes suggest; rather, it maps <i>classes</i> of sound — vowel length, consonant force, nasal vs. plosive character — onto the dramatic registers (<span class="iast">vṛtti</span>) appropriate to particular rasas. Long open vowels and soft sibilants suit the gentler <span class="iast">kaiśikī vṛtti</span> (associated with śṛṅgāra and karuṇa); hard plosives and the retroflex/cerebral series suit the forceful <span class="iast">ārabhaṭī vṛtti</span> (associated with raudra and bībhatsa); and balanced, evenly‑weighted recitation suits the <span class="iast">sāttvatī</span> and <span class="iast">bhāratī vṛttis</span> used for vīra and adbhuta. This class‑level correlate is the one applied consistently in the individual mātṛkā entries of Chapter 9, with rasa‑affinities marked as traditional association rather than fixed law.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Reading the Catalogue in Chapter 9</h3>
+        <p>Each of the fifty‑two entries that follows gives: the akṣara in Devanāgarī and IAST; sthāna and prayatna (place/manner); its Tantric bīja and cakra‑petal association; its short gloss as a name‑root or evocative sense found in the tradition (not a claim of fixed "meaning" — Sanskrit phonemes are not semantic units on their own, but the tradition assigns each a symbolic resonance, particularly within the mātṛkā‑nyāsa and Lalitā‑sahasranāma literature); its association within Nāṭyaśāstric vṛtti/rasa; and a one‑line note on the relevant acoustic or articulatory fact about how that sound is physically produced.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-science')">← ध्वनिविज्ञानम्</span>
+        <span class="fn-btn" onclick="showSection('s-yajna')">Next: यज्ञहोमौ →</span>
+      </div>
+    </section>
+
+    <!-- ============ S4 YAJNA ============ -->
+    <section class="section hidden" id="s-yajna">
+      <div class="eyebrow">अध्यायः ४ · Ritual & Recitation</div>
+      <h2 class="title"><span class="dn">यज्ञहोमौ</span>Yajña and Homa as Acoustic Technology</h2>
+      <p class="lede">The fire ritual is, among other things, a precisely engineered sound event: a fixed pitch‑grammar (the three Vedic svaras), a fixed metrical structure (chandas), and a fixed phonemic inventory (mātṛkā) are combined and directed, by the architecture of the fire‑altar itself, into the surrounding environment.</p>
+
+      <div class="panel">
+        <h3>The Three Vedic Svaras: Pitch as Grammatical Information</h3>
+        <p>Vedic recitation, uniquely among the world's ancient oral traditions, encodes pitch accent as a grammatically meaningful feature, not merely an expressive ornament. Three tones are marked and rigorously preserved across millennia of oral transmission:</p>
+        <table>
+          <tr><th>Svara</th><th>Pitch</th><th>Marking</th></tr>
+          <tr><td>उदात्त Udātta</td><td>Raised/high</td><td>unmarked (default)</td></tr>
+          <tr><td>अनुदात्त Anudātta</td><td>Lowered/low</td><td>horizontal line below</td></tr>
+          <tr><td>स्वरित Svarita</td><td>Falling, from high to low</td><td>vertical line above</td></tr>
+        </table>
+        <p>Because shifting the pitch‑accent in Vedic Sanskrit can change grammatical meaning (the textbook case being <span class="iast">índraśatru</span> vs. <span class="iast">indraśátru</span>, where moving the accent reverses who is meant to be killed), the tradition developed an entire science of recitation discipline — the <span class="iast">prātiśākhyas</span> and <span class="iast">śikṣā</span> texts — purely to guarantee that pitch, duration, and articulation are transmitted without drift.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Homa: the Fire as Acoustic and Combustive Instrument</h3>
+          <p>In homa, mantra recitation is timed to the act of oblation (<span class="iast">āhuti</span>) itself: a fixed formula ending in <span class="iast">svāhā</span> accompanies each offering of ghee, grain, or specific dravyas into the fire. The ritual is thus simultaneously: (a) an acoustic event — sustained, rhythmically repeated vocalisation in a bounded, often symmetrically‑proportioned enclosure; (b) a thermal/combustive event — specific substances chosen for their combustion properties and smoke profile; and (c) a respiratory‑pranic event for the participants, since the officiants are breathing the resulting smoke while performing slow, paced exhalation‑heavy recitation.</p>
+          <p>The traditional claim — found across Gṛhya‑sūtra and later Tantric homa manuals — is that the combination of correctly pronounced mantra, correctly proportioned fire‑altar geometry (Śulba‑sūtra geometry governs altar construction precisely because shape was held to matter), and correctly chosen havana‑dravyas together produces a purifying effect on the immediate atmosphere. This is a traditional, integrated claim about ritual efficacy; the specific, separable acoustic and combustion‑chemistry components of it are what modern measurement can in principle test piece by piece, and Chapter 10 reports what has actually been measured in that vein.</p>
+        </div>
+        <div class="panel">
+          <h3>Mantra Repetition and Saṅkhyā (Counted Recitation)</h3>
+          <p>Homa and japa both specify exact repetition counts (commonly multiples of 108, or fixed lakṣa/ayuta totals for major Tantric sādhanas) using a mālā to track count. Physiologically, this converts recitation into a steady, metronomic, multi‑minute‑to‑multi‑hour rhythmic activity — the duration and regularity that, per the entrainment mechanism discussed in Chapter 2, are the necessary preconditions for any measurable physiological or environmental entrainment effect to accumulate. A single recitation of a mantra is acoustically trivial; a sustained, counted, multi‑thousand‑repetition japa or homa session is a different order of acoustic exposure, both for the practitioner and for anyone present in the room.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Bīja Mantras in Homa: Single‑Phoneme Concentration</h3>
+        <p>Many homa formulas reduce, at their ritual core, to a single bīja — a seed‑syllable such as <span class="iast">aṁ, klīṁ, hrīṁ, śrīṁ, krīṁ</span> — surrounded by a longer liturgical frame. The bīja is held to concentrate, in one phoneme, the acoustic/subtle essence of the deity invoked, with the anusvāra (the nasal <span class="iast">-ṁ</span>) marking the point at which sound returns to silence (bindu). This is the single clearest place where the philosophical claim of Chapter 1 (sound condensing from subtle to gross, and dissolving back) is operationalised as an actual repeated ritual action, rather than remaining only a doctrine.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-matrikatheory')">← मातृकान्यासः</span>
+        <span class="fn-btn" onclick="showSection('s-svadhyaya')">Next: स्वाध्यायः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S5 SVADHYAYA ============ -->
+    <section class="section hidden" id="s-svadhyaya">
+      <div class="eyebrow">अध्यायः ५ · Ritual & Recitation</div>
+      <h2 class="title"><span class="dn">स्वाध्यायः</span>The Pāṭha System: Redundancy as Fidelity Engineering</h2>
+      <p class="lede">The Vedic reciter's tradition built, well over two thousand years ago, a set of recitation algorithms whose explicit purpose was the bit‑perfect, error‑checked transmission of sound — making it, among other things, one of the oldest deliberately engineered information‑integrity systems in human history.</p>
+
+      <div class="panel">
+        <h3>From Saṁhitā‑pāṭha to Ghana‑pāṭha</h3>
+        <p>Beyond the plain continuous recitation (<span class="iast">saṁhitā‑pāṭha</span>), the tradition developed increasingly intricate permutation‑recitations that recombine adjacent words in fixed patterns, each pattern functioning as a checksum against memorial drift:</p>
+        <table>
+          <tr><th>Pāṭha</th><th>Pattern</th><th>Function</th></tr>
+          <tr><td>संहितापाठ Saṁhitā</td><td>Continuous, with sandhi</td><td>Base text as normally chanted</td></tr>
+          <tr><td>पदपाठ Pada</td><td>Word‑by‑word, sandhi undone</td><td>Isolates each word unambiguously</td></tr>
+          <tr><td>क्रमपाठ Krama</td><td>1‑2, 2‑3, 3‑4 …</td><td>Locks word order pairwise</td></tr>
+          <tr><td>जटापाठ Jaṭā</td><td>1‑2‑2‑1‑1‑2, 2‑3‑3‑2‑2‑3 …</td><td>Triple‑checks sequence both directions</td></tr>
+          <tr><td>घनपाठ Ghana</td><td>Most complex cyclical permutation</td><td>Maximum redundancy check</td></tr>
+        </table>
+        <p>UNESCO recognised the tradition of Vedic chanting as a Masterpiece of the Oral and Intangible Heritage of Humanity in 2003 precisely on the strength of this combination of phonetic precision, melodic/tonal accuracy, and the mnemonic permutation system, noting that it preserved a 3,000‑year‑old oral tradition essentially intact.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Why Precision Was Treated as Non‑Negotiable</h3>
+          <p>The tradition's own stated rationale (found across the Śikṣā and Prātiśākhya literature) is twofold and explicit: (1) mantra is held to be effective specifically through correct sound‑form (<span class="iast">śabda‑śuddhi</span>), so a mispronounced mantra is held to be inert or even actively counter‑productive, hence the famous <span class="iast">indraśatru</span> example used to train students in the danger of accent‑drift; and (2) because Vedic mantras were composed by the ṛṣis as a fixed, complete, non‑authored "given" (<span class="iast">apauruṣeya</span>), faithful transmission was treated as a sacred duty independent of whether any individual reciter understood the semantic content.</p>
+        </div>
+        <div class="panel">
+          <h3>Group Recitation and Collective Atmosphere</h3>
+          <p>Large‑scale Vedic recitation events (Veda‑pāṭhaśālā gatherings, Atirātra and other śrauta yajñas conducted by dozens of trained reciters in unison) are explicitly intended, in the tradition's own framing, to saturate a physical space with synchronised sound over an extended duration — days in the case of major śrauta rites. This is the clearest traditional precedent for the modern claim examined in Chapter 10 about group chanting's measurable effect on a shared environment: many voices, tightly synchronised in pitch and rhythm by the pāṭha discipline above, sustained over very long durations, in a bounded ritual enclosure.</p>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-yajna')">← यज्ञहोमौ</span>
+        <span class="fn-btn" onclick="showSection('s-natyashastra')">Next: नाट्यशास्त्रम् →</span>
+      </div>
+    </section>
+
+    <!-- ============ S6 NATYASHASTRA ============ -->
+    <section class="section hidden" id="s-natyashastra">
+      <div class="eyebrow">अध्यायः ६ · Nāṭyaśāstra</div>
+      <h2 class="title"><span class="dn">नाट्यशास्त्रम्</span>Bharata's Treatise: The Dancer's Body as Resonating Instrument</h2>
+      <p class="lede">Bharata Muni's Nāṭyaśāstra (compiled roughly between the 2nd century BCE and 2nd century CE, traditionally in 36 chapters covering everything from stage architecture to cosmogony of dance) treats sound, gesture, and emotional effect as a single integrated system rather than three separate arts pasted together.</p>
+
+      <div class="panel">
+        <h3>The Mythic Charter: Dance Born from the Four Vedas</h3>
+        <p>The Nāṭyaśāstra's own opening narrative (Adhyāya 1) tells that Brahmā created the Nāṭyaveda — the "fifth Veda," accessible to all varṇas including those barred from the other four — by drawing <span class="iast">pāṭhya</span> (recitation/text) from the Ṛgveda, <span class="iast">gīta</span> (song) from the Sāmaveda, <span class="iast">abhinaya</span> (gesture/expression) from the Yajurveda, and <span class="iast">rasa</span> (aesthetic emotion) from the Atharvaveda. This origin story is the text's own explicit statement that dance is, by design, a synthesis art whose sonic component is drawn from the same root as Vedic recitation itself — not a separate, later, "merely artistic" layer.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Vācika Abhinaya: Sound as One of the Four Expressive Channels</h3>
+          <p>Bharata systematises expressive technique into four channels (<span class="iast">catur‑vidha abhinaya</span>):</p>
+          <table>
+            <tr><th>Abhinaya</th><th>Channel</th></tr>
+            <tr><td>आङ्गिक Āṅgika</td><td>Body, limbs, mudrā</td></tr>
+            <tr><td>वाचिक Vācika</td><td>Voice — recitation, song, dialogue</td></tr>
+            <tr><td>आहार्य Āhārya</td><td>Costume, makeup, ornament</td></tr>
+            <tr><td>सात्त्विक Sāttvika</td><td>Involuntary psychophysical states (tears, horripilation, trembling)</td></tr>
+          </table>
+          <p style="font-size:14.5px;">Crucially, <span class="iast">vācika abhinaya</span> is not treated as illustrative narration running alongside the dance; the Nāṭyaśāstra's chapters on <span class="iast">svara</span> (musical tone), <span class="iast">jāti</span> (melodic mode, ancestor of rāga), and <span class="iast">tāla</span> (rhythm) are given extensive independent technical treatment (Adhyāyas 28–34), establishing that the sound layer of dance has its own internal precision discipline, parallel to and synchronised with the gestural layer.</p>
+        </div>
+        <div class="panel">
+          <h3>The Four Vṛttis: Registers of Delivered Sound</h3>
+          <p>Bharata's <span class="iast">vṛtti</span> system (Adhyāya 20) classifies the dramatic "style" of delivery — encompassing diction, rhythm, and the character of vocal sound used — into four registers, each suited to particular rasas and particular dramatic situations:</p>
+          <ul style="padding-left:18px; font-size:15px; line-height:2;">
+            <li><b>कैशिकी Kaiśikī</b> — graceful, delicate; soft consonants, long vowels; śṛṅgāra, hāsya</li>
+            <li><b>सात्त्वती Sāttvatī</b> — noble, elevated; balanced articulation; vīra, adbhuta</li>
+            <li><b>आरभटी Ārabhaṭī</b> — forceful, vehement; hard plosives, short bursts; raudra, bībhatsa, bhayānaka</li>
+            <li><b>भारती Bhāratī</b> — verbal, Sanskrit‑heavy dialogue‑driven; hāsya, karuṇa via spoken word</li>
+          </ul>
+          <p style="font-size:14.5px; color:var(--text-faint);">This is the direct textual basis for the "letter‑class to rasa" correlation used in Chapter 9: it is not that any individual phoneme by itself fixes a rasa, but that classes of articulatory effort (soft/open vs. hard/closed) are assigned by Bharata to vṛttis, which are in turn assigned to rasas.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Why This Matters for "Positive Vibration": the Text's Own Causal Claim</h3>
+        <p>The Nāṭyaśāstra states its own purpose, in Adhyāya 1, as the production of a specific psychological/spiritual effect on the audience — instruction, consolation in grief, courage, and ultimately a kind of purification (<span class="iast">dharmya, yaśasyam, āyuṣyam, hita‑kāri</span>) achieved through aesthetic delight (rasa). The text frames this as causally dependent on <i>correct</i> execution across all four abhinaya channels together — meaning that, on the tradition's own account, sloppy or merely decorative sound‑production breaks the chain that leads from performance to rasa to the beneficial effect on the audience. This is structurally the same logic as the Vedic insistence on phonetic precision in Chapter 5: efficacy is held to depend on exact form, not approximate intention.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-svadhyaya')">← स्वाध्यायः</span>
+        <span class="fn-btn" onclick="showSection('s-rasa')">Next: रसनिष्पत्तिः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S7 RASA ============ -->
+    <section class="section hidden" id="s-rasa">
+      <div class="eyebrow">अध्यायः ७ · Nāṭyaśāstra</div>
+      <h2 class="title"><span class="dn">रसनिष्पत्तिः</span>Rasa‑Niṣpatti: How Sound Becomes Felt Emotion in the Room</h2>
+      <p class="lede">Bharata's most famous formula — and Abhinavagupta's tenth‑century commentary on it — describes rasa not as the performer's private feeling broadcast outward, but as an emotion that crystallises jointly, in the shared aesthetic space, out of correctly assembled sonic and gestural components.</p>
+
+      <div class="sanskrit-block" style="font-size:19px;">विभावानुभावव्यभिचारिसंयोगाद् रसनिष्पत्तिः ।</div>
+      <p class="gloss">Rasa is accomplished/crystallises from the conjunction of vibhāva (determinants/cause), anubhāva (consequents/effects), and vyabhicāri‑bhāva (transitory states). <i>Nāṭyaśāstra, 6.31 (commentary tradition)</i></p>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Abhinavagupta's Reading: Rasa as Shared Resonance</h3>
+          <p>The 10th–11th century Kashmir Śaiva polymath Abhinavagupta, in his <i>Abhinavabhāratī</i> commentary, reframes rasa‑niṣpatti through the lens of his own Pratyabhijñā philosophy: rasa is held to arise through <span class="iast">sādhāraṇīkaraṇa</span> ("generalisation" or de‑particularisation), in which the spectator's own latent emotional impressions (<span class="iast">vāsanā</span>) are activated and universalised by correctly delivered sonic and gestural stimuli, allowing many spectators to experience a shared, depersonalised aesthetic emotion simultaneously rather than each privately empathising with the character. This is, structurally, a claim that a precisely engineered combination of sound and gesture produces a synchronised psychological state across a room of separate nervous systems — the aesthetic‑theoretical cousin of the entrainment mechanism discussed in Chapter 2, though Abhinavagupta's own framework is phenomenological/metaphysical rather than physiological.</p>
+        </div>
+        <div class="panel">
+          <h3>The Nine Rasas and Their Traditional Sonic Signature</h3>
+          <table>
+            <tr><th>Rasa</th><th>Sonic register</th></tr>
+            <tr><td>शृङ्गार Śṛṅgāra</td><td>Soft, long vowels; kaiśikī vṛtti</td></tr>
+            <tr><td>हास्य Hāsya</td><td>Light, quick, irregular rhythm</td></tr>
+            <tr><td>करुण Karuṇa</td><td>Falling pitch contours, soft sibilants</td></tr>
+            <tr><td>रौद्र Raudra</td><td>Hard plosives, retroflex force; ārabhaṭī</td></tr>
+            <tr><td>वीर Vīra</td><td>Even, sustained, resonant; sāttvatī</td></tr>
+            <tr><td>भयानक Bhayānaka</td><td>Broken rhythm, sudden bursts</td></tr>
+            <tr><td>बीभत्स Bībhatsa</td><td>Harsh consonant clusters</td></tr>
+            <tr><td>अद्भुत Adbhuta</td><td>Rising pitch, exclamatory vowels</td></tr>
+            <tr><td>शान्त Śānta</td><td>Even, minimal, long sustained drone</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Tāla, Svara, and the Felt Pulse of the Room</h3>
+        <p>Carnatic and Hindustani performance practice, both downstream of the Nāṭyaśāstric svara/jāti system, treat the steady cyclic pulse of tāla and the sustained drone of the tambūrā/śruti as the acoustic ground against which melodic and gestural variation becomes meaningful. The drone in particular — a continuously sounding fundamental and its harmonics — functions exactly as the "carrier resonance" discussed in Chapter 2: a steady reference frequency field that the room, the dancer's body, and the audience's perception are all entrained to over the course of a performance. This is the same underlying acoustic logic the tradition applies to the homa fire's mantra‑frame in Chapter 4 and to the sustained Vedic recitation of Chapter 5 — a steady, repeated, long‑duration sonic ground is treated, across all three contexts, as the precondition for a deeper effect to "take."</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-natyashastra')">← नाट्यशास्त्रम्</span>
+        <span class="fn-btn" onclick="showSection('s-mudra')">Next: हस्तमुद्राः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S8 MUDRA ============ -->
+    <section class="section hidden" id="s-mudra">
+      <div class="eyebrow">अध्यायः ८ · Nāṭyaśāstra</div>
+      <h2 class="title"><span class="dn">हस्तमुद्राः</span>Hasta and Akṣara: Gesture as Visible Phoneme</h2>
+      <p class="lede">The Nāṭyaśāstra's hasta (hand‑gesture) system, elaborated in Adhyāya 9 and vastly expanded in later regional treatises (the Abhinaya Darpaṇa, Hastalakṣaṇadīpikā, and the practice manuals of Bharatanāṭyam, Kathakaḷi, Odissi, and Kūchipūḍi), is structured in close parallel to the mātṛkā system itself — a finite, combinable alphabet of forms rather than a free pantomime.</p>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Asaṁyukta and Saṁyukta Hastas</h3>
+          <p>Just as the varṇamālā divides into independent phonemes that combine into conjuncts (<span class="iast">saṁyukta‑akṣara</span>), the gestural vocabulary divides into 28 single‑hand gestures (<span class="iast">asaṁyukta hasta</span>) and 24 double‑hand gestures (<span class="iast">saṁyukta hasta</span>) in the classical reckoning, each with a fixed name, a fixed set of permissible meanings, and — critically for this study — a customary association with specific syllables used in solkattu/bol recitation (the rhythmic vocal mnemonics, e.g. <span class="iast">tat‑tai‑tam, dhit‑tai</span>) that a dancer's teacher recites aloud while the dancer's hands and feet execute the corresponding movement.</p>
+        </div>
+        <div class="panel">
+          <h3>Solkattu/Bol: the Recited Skeleton Beneath the Gesture</h3>
+          <p>This recited rhythmic syllabary — mnemonic, percussive, semantically "empty" but acoustically exact — is itself a direct, still‑living descendant of the mātṛkā principle: meaningless‑seeming syllables (tat, dhit, ta, ka, jham) are treated as load‑bearing acoustic‑kinetic units, exactly as bīja mantras are treated as load‑bearing acoustic‑spiritual units in Tantric homa (Chapter 4). The dancer's teacher reciting bol aloud while striking rhythm on a wooden block, and the priest reciting bīja while making an oblation, are structurally the same act: a precisely timed, repeated phoneme synchronising a physical action to a sonic pulse.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>The Body as the Final Resonating Instrument</h3>
+        <p>Taken together, Chapters 6–8 describe a single integrated chain that the Nāṭyaśāstra and its descendant practice traditions treat as one continuous instrument: precisely articulated phonemes (vācika abhinaya, drawing on the same mātṛkā inventory as Vedic recitation) → rhythmically and melodically organised sound (svara, tāla, jāti) → precisely co‑ordinated gesture keyed to that sound (hasta, keyed to bol/solkattu) → involuntary psychophysical response in performer and audience (sāttvika bhāva) → crystallised, shared aesthetic emotion in the room (rasa‑niṣpatti). The claim that classical dance "generates positive vibration across the environment" is, read in this light, the tradition's own summary description of this entire chain operating correctly together — not a separate or additional claim layered on top of the dance technique, but Bharata's stated definition of what successful nāṭya already is.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-rasa')">← रसनिष्पत्तिः</span>
+        <span class="fn-btn" onclick="showSection('s-matrikagrid')">Next: The 52 Mātṛkās →</span>
+      </div>
+    </section>
+
+    <!-- ============ S9 MATRIKA GRID ============ -->
+    <section class="section hidden" id="s-matrikagrid">
+      <div class="eyebrow">अध्यायः ९ · द्विपञ्चाशन्मातृकाः</div>
+      <h2 class="title"><span class="dn">द्विपञ्चाशन्मातृकाः</span>The Fifty‑Two Mātṛkās, Individually</h2>
+      <p class="lede">Each phoneme below carries its point of articulation, its Tantric bīja/cakra correlate, its traditional symbolic gloss, its Nāṭyaśāstric vṛtti/rasa affinity, and a note on its physical acoustic character. Tap any letter for the full entry.</p>
+
+      <div class="matrika-toolbar">
+        <button class="mfilter active" data-grp="all">All 52</button>
+        <button class="mfilter" data-grp="vowel">स्वराः · Vowels (16)</button>
+        <button class="mfilter" data-grp="anahata">कवर्ग–टवर्ग · Anāhata (12)</button>
+        <button class="mfilter" data-grp="manipura">डवर्ग–फ · Maṇipūra (10)</button>
+        <button class="mfilter" data-grp="svadhishthana">ब–ल · Svādhiṣṭhāna (6)</button>
+        <button class="mfilter" data-grp="muladhara">व–स · Mūlādhāra (4)</button>
+        <button class="mfilter" data-grp="ajna">ह, क्ष · Ājñā (2)</button>
+        <button class="mfilter" data-grp="extra">ळ, ज्ञ · Sahasrāra (2)</button>
+      </div>
+      <div class="mgrid" id="mgrid"></div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-mudra')">← हस्तमुद्राः</span>
+        <span class="fn-btn" onclick="showSection('s-casestudies')">Next: प्रायोगिकाध्ययनानि →</span>
+      </div>
+    </section>
+
+    <!-- ============ S10 CASE STUDIES ============ -->
+    <section class="section hidden" id="s-casestudies">
+      <div class="eyebrow">अध्यायः १० · Evidence</div>
+      <h2 class="title"><span class="dn">प्रायोगिकाध्ययनानि</span>Six Case Studies: Medical and Scientific Vantage Points</h2>
+      <p class="lede">These six cases are drawn from established, independently checkable research areas relevant to chanting, mantra, rhythm, and sound. Each is presented with what was actually studied, what was found, and — honestly — what remains open. None of them proves the metaphysical claims of Chapters 1–9; together they show where the tradition's claims touch ground that modern measurement can independently address, and where the two registers should not be conflated.</p>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 01</div>
+        <h3>OM Chanting and Limbic Deactivation — Neuroimaging of a Single Bīja</h3>
+        <div class="cs-meta"><span><b>Field:</b> Neuroimaging (fMRI)</span><span><b>Subject:</b> Sustained "Oṁ" vocalisation</span></div>
+        <p>Functional MRI studies of experienced practitioners sustaining the syllable "Oṁ" aloud (work associated with researchers at NIMHANS, Bengaluru, in the early 2010s, alongside comparable EEG studies) reported relative deactivation in limbic structures — including the amygdala — during chanting compared with simple humming or rest, alongside changes in default‑mode‑network activity. This is broadly consistent with the chanting state being subjectively reported as calming, and is one of the more direct neuroimaging windows onto a single bīja held in sustained recitation, the exact unit Chapter 4 discusses as the homa's acoustic core.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">Caveat: sample sizes in this literature are typically small, and it is methodologically difficult to separate the effect of the specific syllable "Oṁ" from the general effect of any sustained, slow, voiced exhalation — a confound the original Vedic emphasis on phonetic specificity (Chapter 5) would predict matters, but which imaging studies to date have not fully isolated.</p>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 02</div>
+        <h3>The Rosary and the Mantra: Convergent Cardiovascular Synchrony at ~6 Breaths/Minute</h3>
+        <div class="cs-meta"><span><b>Field:</b> Cardiovascular physiology</span><span><b>Published:</b> <i>BMJ</i>, 2001 (Bernardi et al.)</span></div>
+        <p>A frequently cited <i>BMJ</i> study compared the respiratory and cardiovascular effects of reciting the Roman Catholic rosary in Latin against reciting the Sanskrit mantra "oṁ maṇi padme hūṁ" while practising yogic breathing, finding that both independently‑evolved recitation practices converged on a respiratory rate of close to six breaths per minute, and that this rate produced synchronisation between heart rate and respiration that enhanced baroreflex sensitivity — a marker linked to cardiovascular and autonomic health. The authors explicitly noted this as a striking case of two unrelated devotional traditions arriving, by long practice, at a shared physiologically advantageous rhythm.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">This is the cleanest documented bridge between Chapter 2's discussion of paced breathing and the actual practice of mantra japa: the bīja and the breath count are not philosophically separable in the data, regardless of which mantra or language is used.</p>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 03</div>
+        <h3>Rhythmic Auditory Stimulation in Movement Rehabilitation</h3>
+        <div class="cs-meta"><span><b>Field:</b> Clinical neurorehabilitation</span><span><b>Subject:</b> Gait disorders, Parkinson's disease, stroke</span></div>
+        <p>Rhythmic Auditory Stimulation (RAS), developed substantially through the work of Michael Thaut and colleagues, uses a steady external metronomic or musical pulse to entrain stepping rhythm in patients with Parkinson's disease and post‑stroke gait impairment, with multiple controlled trials reporting improved step cadence, stride length, and gait velocity when patients walk to a steady beat compared with walking without it. The proposed mechanism is auditory‑motor entrainment — rhythmic auditory input directly coupling to the motor‑timing circuitry that governs stepping, the same entrainment principle outlined in Chapter 2.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">RAS is not chanting or Sanskrit recitation, but it is the most rigorously clinically validated instance of "a steady, repeated sound pattern measurably reorganising bodily movement" available in the literature — directly relevant to the Nāṭyaśāstra's own claim (Chapter 8) that tāla and bol organise the dancer's body through sound.</p>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 04</div>
+        <h3>Cymatics: Visualising Vibration as Pattern</h3>
+        <div class="cs-meta"><span><b>Field:</b> Acoustic physics</span><span><b>Key work:</b> Ernst Chladni (1787); Hans Jenny, <i>Kymatik</i> (1967)</span></div>
+        <p>Ernst Chladni's classical demonstration — drawing a violin bow across the edge of a sand‑strewn metal plate to reveal stable geometric nodal patterns at specific frequencies — and Hans Jenny's mid‑20th‑century extension of this work using fine powders, fluids, and a sustained‑tone oscillator, are robust, easily‑replicated physics demonstrations that different frequencies imposed on a medium reliably organise that medium into different, often symmetrical, characteristic patterns. This is frequently invoked in popular accounts of mantra and bīja as direct evidence that "sound creates form," and the underlying physical phenomenon is genuine and well documented.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">Caveat — important for academic honesty: cymatic pattern‑formation is a real, general property of any sufficiently pure tone acting on any suitable resonant medium (sand, water, oobleck); it has not been shown to be specific to Sanskrit phonemes, bīja mantras, or sacred language as opposed to any other sustained tone of the same frequency. It demonstrates the general physics behind Chapter 1's claim that sound organises matter; it does not by itself demonstrate anything unique to mātṛkā recitation specifically, and should not be cited as if it did.</p>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 05</div>
+        <h3>Group Chanting, Cortisol, and Mood</h3>
+        <div class="cs-meta"><span><b>Field:</b> Psychoneuroendocrinology</span><span><b>Subject:</b> Communal singing/chanting and salivary cortisol</span></div>
+        <p>A body of research on communal singing and group chanting (spanning choral singing studies and a smaller literature specifically on kīrtan and Kuṇḍalinī‑yoga mantra chanting) has reported reductions in self‑rated anxiety and, in several smaller studies, reductions in salivary cortisol following group chanting sessions, alongside increases in self‑reported wellbeing and social connectedness measures. Group synchrony itself (singing or chanting in unison versus alone) has separately been associated in social‑psychology research with increased felt social bonding, sometimes termed "self‑other merging."</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">This is the research area most directly relevant to the claim that group recitation (Chapter 5's mass Vedic recitation, or temple bhajan/kīrtan) produces a shared atmospheric effect — but the effect documented here is psychological and endocrine in the participants, not yet a demonstrated physical change in the surrounding environment itself, a distinction the synthesis chapter returns to.</p>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-num">CASE STUDY 06</div>
+        <h3>Plant Growth and Sound: A Contested but Frequently Cited Literature</h3>
+        <div class="cs-meta"><span><b>Field:</b> Plant bioacoustics</span><span><b>Status:</b> Mixed/preliminary evidence</span></div>
+        <p>A number of small experiments since the mid‑20th century (popularised by T.C. Singh's work in India in the 1950s–60s, and revisited by various later, generally small‑scale studies) have reported faster growth or altered gene expression in plants exposed to music or specific sound frequencies compared with silent controls. This is the research most often invoked to support claims that yajña/mantra recitation benefits the surrounding "environment and atmosphere" in a literal, biological sense.</p>
+        <p style="color:var(--text-faint); font-size:14.5px;">Caveat — important for academic honesty: this literature is markedly less rigorous and less replicated than Case Studies 2 and 3, sample sizes are typically small, blinding is difficult, and several widely circulated claims (precise percentage growth increases attributed to specific rāgas or mantras) trace back to popular‑science retellings rather than to peer‑reviewed, replicated trials. It belongs in this study as an honest account of what has been claimed and attempted, not as settled scientific fact, and any reader citing it further should go back to primary sources rather than secondary summaries.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-matrikagrid')">← The 52 Mātṛkās</span>
+        <span class="fn-btn" onclick="showSection('s-synthesis')">Next: उपसंहारः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S11 SYNTHESIS ============ -->
+    <section class="section hidden" id="s-synthesis">
+      <div class="eyebrow">अध्यायः ११ · Synthesis</div>
+      <h2 class="title"><span class="dn">उपसंहारः</span>Where Tradition and Measurement Meet — and Where They Don't Yet</h2>
+      <p class="lede">Holding Chapters 1–9 (the tradition's own integrated account) against Chapter 10 (what independent measurement has shown) yields three honest categories rather than one triumphant conclusion.</p>
+
+      <div class="grid3">
+        <div class="panel">
+          <h3 style="color:var(--gold-bright);">Well‑supported convergence</h3>
+          <p style="font-size:15px;">Slow, paced, mantra‑style breathing measurably shifts autonomic balance (Case 2); rhythmic sound measurably entrains motor timing (Case 3); sustained tone measurably organises a physical medium into pattern (Case 4, as a general acoustic fact); group synchrony measurably affects participants' own psychology and endocrinology (Case 5). These are independently replicated, mechanistically understood, and directly continuous with what Chapters 2, 4, 5, and 8 describe the tradition as doing.</p>
+        </div>
+        <div class="panel">
+          <h3 style="color:var(--saffron);">Promising but preliminary</h3>
+          <p style="font-size:15px;">Syllable‑specific neuroimaging effects (Case 1) and any claim of sound‑specific (as opposed to general‑tone) biological effects on plants or environment (Case 6) are real research directions with some supportive findings, but not yet supported by the volume of large, well‑controlled, replicated trials that would let this study assert them as established science. They are reported here as open and worth further inquiry, in keeping with the tradition's own historical confidence that more would eventually be shown — not as settled fact.</p>
+        </div>
+        <div class="panel">
+          <h3 style="color:var(--crimson-bright);">Distinct register, not yet measurable</h3>
+          <p style="font-size:15px;">The claims of Chapter 1 — that Sanskrit phonemes are the literal generative matrix of manifest reality, that paśyantī/madhyamā/vaikharī describe stages of consciousness prior to any neural correlate, that a correctly performed homa purifies the subtle environment, or that rasa is a metaphysically real, depersonalised aesthetic substance — belong to a philosophical and theological register that this study reports faithfully as the tradition's own self‑understanding, but does not claim modern instruments have verified or could in principle verify. Conflating this register with Case Studies 1–6 would do a disservice to both the rigor of the science and the integrity of the philosophy.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>A Working Statement</h3>
+        <p>Sanskrit ritual and performance tradition built, independently and over many centuries, an exceptionally precise discipline of articulation, breath‑pacing, rhythm, and group synchrony, organised around the conviction that sound is not incidental to spiritual and aesthetic effect but constitutive of it. Wherever modern physiology and acoustics have looked closely at the separable physical components of that discipline — breath rate, rhythm, resonance, group synchrony — they have tended to find real, measurable effects in the predicted direction. This gives no warrant to claim that every traditional assertion about mātṛkā, bīja, or rasa has been "proven by science"; it gives good warrant to take the tradition's underlying intuition — that exact, sustained, communal sound‑practice does something real to bodies and to shared spaces — seriously as a hypothesis with a strong track record where it has actually been tested.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-casestudies')">← प्रायोगिकाध्ययनानि</span>
+        <span class="fn-btn" onclick="showSection('s-references')">Next: सन्दर्भाः →</span>
+      </div>
+    </section>
+
+    <!-- ============ S12 REFERENCES ============ -->
+    <section class="section hidden" id="s-references">
+      <div class="eyebrow">अध्यायः १२ · Reference</div>
+      <h2 class="title"><span class="dn">सन्दर्भाः</span>References and Further Reading</h2>
+      <p class="lede">Primary Sanskrit sources, key commentaries, and the modern literature engaged in Chapter 10. Readers are encouraged to verify the scientific citations against the original publications rather than this summary alone.</p>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Primary Sanskrit Sources</h3>
+          <ul class="refs">
+            <li>Bharata Muni, <i>Nāṭyaśāstra</i>, esp. Adhyāyas 1, 6–7 (rasa‑sūtra), 9 (hasta), 20 (vṛtti), 28–34 (svara, jāti, tāla)</li>
+            <li>Bhartṛhari, <i>Vākyapadīya</i>, Brahmakāṇḍa, esp. 1.1–1.14</li>
+            <li><i>Māṇḍūkya Upaniṣad</i> with Gauḍapāda's <i>Kārikā</i></li>
+            <li><i>Lalitā‑sahasranāma</i> with Bhāskararāya's <i>Saubhāgya‑bhāskara</i> commentary</li>
+            <li>Abhinavagupta, <i>Abhinavabhāratī</i> (commentary on Nāṭyaśāstra 6–7)</li>
+            <li>Pāṇinīya‑śikṣā and the Prātiśākhya literature (Ṛk‑, Tāittirīya‑, Vājasaneyi‑prātiśākhya)</li>
+            <li>Śulba‑sūtras (altar geometry) — Baudhāyana, Āpastamba, Kātyāyana recensions</li>
+            <li><i>Devī Māhātmya</i> and Tantric mātṛkā‑nyāsa manuals (Śrīvidyā paddhati literature)</li>
+            <li>Nandikeśvara, <i>Abhinaya Darpaṇa</i></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Modern Scholarship & Scientific Literature (Chapter 10)</h3>
+          <ul class="refs">
+            <li>Bernardi, L. et al., "Effect of rosary prayer and yoga mantras on autonomic cardiovascular rhythms," <i>BMJ</i> 323 (2001)</li>
+            <li>Kalyani, B.G. et al., neuroimaging studies of "Oṁ" chanting, NIMHANS, Bengaluru (c. 2011)</li>
+            <li>Thaut, M.H., <i>Rhythm, Music, and the Brain: Scientific Foundations and Clinical Applications</i> (2005) and subsequent RAS clinical trials</li>
+            <li>Jenny, H., <i>Kymatik / Cymatics: Wave Phenomena and Vibrational Effects</i> (1967)</li>
+            <li>Singh, T.C., early plant‑bioacoustic experiments, Annamalai University (1950s–60s) — read alongside later replication attempts</li>
+            <li>UNESCO, "The Tradition of Vedic Chanting," Representative List of the Intangible Cultural Heritage of Humanity (inscribed 2008, proclaimed 2003)</li>
+            <li>Studies on choral/group singing and salivary cortisol/oxytocin (various, music‑psychology and psychoneuroendocrinology journals)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>About Cultural Musings</h3>
+        <p>This resource is part of the <b>culturalmusings.com</b> project, which publishes long‑form scholarly material on Sanskrit philosophy, Tantra, Carnatic musicology, and Indian classical performance, alongside companion video content on the <b>Aesthetics of Society</b> YouTube channel.</p>
+      </div>
+
+      <div class="footer-nav">
+        <span class="fn-btn" onclick="showSection('s-synthesis')">← उपसंहारः</span>
+        <span class="fn-btn" onclick="showSection('s-dhyana')">↺ Back to ध्यानम्</span>
+      </div>
+    </section>
+
+    </div>
+
+  </main>
+</div>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<!-- MODAL for matrika detail -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script>
+// Navigation
+const navlinks = document.querySelectorAll('.navlink');
+const tabbtns = document.querySelectorAll('.tabbtn');
+const sections = document.querySelectorAll('.section');
+const crumb = document.getElementById('crumb');
+
+function showSection(id){
+  sections.forEach(s=>s.classList.toggle('hidden', s.id!==id));
+  navlinks.forEach(l=>l.classList.toggle('active', l.dataset.target===id));
+  tabbtns.forEach(t=>t.classList.toggle('active', t.dataset.target===id));
+  const activeTab = document.querySelector('.tabbtn[data-target="'+id+'"]');
+  if(activeTab) crumb.textContent = activeTab.textContent;
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('sidebar').classList.remove('open');
+  history.replaceState(null,'','#'+id);
+}
+navlinks.forEach(l=>l.addEventListener('click', ()=>showSection(l.dataset.target)));
+tabbtns.forEach(t=>t.addEventListener('click', ()=>showSection(t.dataset.target)));
+document.getElementById('menuToggle').addEventListener('click', ()=>{
+  document.getElementById('sidebar').classList.toggle('open');
+});
+window.addEventListener('DOMContentLoaded', ()=>{
+  const hash = location.hash.replace('#','');
+  showSection(hash && document.getElementById(hash) ? hash : 's-dhyana');
+});
+</script>
+<!-- ===================== SCRIPT FOR MATRIKA DATA WILL BE INSERTED HERE ===================== -->
+<script>
+const M = [
+// ===== VOWELS — Viśuddha cakra, 16 petals =====
+{ak:'अ',iast:'a',grp:'vowel',cakra:'Viśuddha (1/16)',sthana:'Kaṇṭhya (throat)',prayatna:'Open, unconstricted vowel — the base of all sound',bija:'Root of every bīja; never appears unattached',gloss:'The unstruck root vowel; held in Tantra as the seed of Śiva‑consciousness from which all other 51 letters unfold — Bhartṛhari\'s discussion of vivarta begins conceptually here.',rasa:'Substratum tone beneath every vṛtti; the "open throat" all registers return to',acoustic:'Lowest‑constriction vowel; maximal vocal‑tract resonance, the easiest sound for the voice to sustain at length.'},
+{ak:'आ',iast:'ā',grp:'vowel',cakra:'Viśuddha (2/16)',sthana:'Kaṇṭhya, lengthened',prayatna:'Long open vowel',bija:'Lengthened root; common terminal in invocatory vocatives',gloss:'The long form of a, used to mark extension, fullness, completion — e.g. in vocative address to the Goddess, "ambā," "tārā."',rasa:'Kaiśikī vṛtti — sustained open vowels carry śṛṅgāra and karuṇa',acoustic:'Doubled duration of "a"; the longest sustainable open‑throat tone in the inventory, maximal chest/throat resonance felt by reciter.'},
+{ak:'इ',iast:'i',grp:'vowel',cakra:'Viśuddha (3/16)',sthana:'Tālavya (hard palate)',prayatna:'Close front vowel',bija:'Found in Icchā‑śakti (will/desire) bīja contexts',gloss:'Associated with icchā‑śakti, the power of will, in Kashmir Śaiva triadic śakti schema (icchā‑jñāna‑kriyā).',rasa:'Light, bright tonal quality suited to hāsya and adbhuta',acoustic:'High‑frequency formant structure (high F2); perceptually the "brightest" vowel in the set.'},
+{ak:'ई',iast:'ī',grp:'vowel',cakra:'Viśuddha (4/16)',sthana:'Tālavya, lengthened',prayatna:'Long close front vowel',bija:'Lengthened icchā‑bīja',gloss:'The extended form of i; used in feminine grammatical endings, and symbolically read as extended will/intention sustained toward fruition.',rasa:'Sustained bright tone, śṛṅgāra‑adjacent in lyrical contexts',acoustic:'High F2 sustained over long duration; piercing, carries well across a hall.'},
+{ak:'उ',iast:'u',grp:'vowel',cakra:'Viśuddha (5/16)',sthana:'Oṣṭhya (lips)',prayatna:'Close back rounded vowel',bija:'Found in praṇava\'s second mātrā (A‑U‑M)',gloss:'The second mātrā of Oṁ in the Māṇḍūkya scheme, associated with the taijasa (dream/subtle) state of consciousness.',rasa:'Rounded, interior tonal quality; suited to karuṇa and śānta',acoustic:'Low F2, rounded‑lip resonance; concentrates acoustic energy in the lower formants, felt in the chest.'},
+{ak:'ऊ',iast:'ū',grp:'vowel',cakra:'Viśuddha (6/16)',sthana:'Oṣṭhya, lengthened',prayatna:'Long close back rounded vowel',bija:'Lengthened taijasa‑bīja',gloss:'Extension of u; in some bīja charts marks the fullness of the dream/subtle state before transition to deep sleep (suṣupti) symbolised by m.',rasa:'Deep, sustained interior tone; śānta',acoustic:'Strongest chest‑cavity resonance among the simple vowels when sustained.'},
+{ak:'ऋ',iast:'ṛ',grp:'vowel',cakra:'Viśuddha (7/16)',sthana:'Mūrdhanya (retroflex)',prayatna:'Vocalic retroflex',bija:'Marked as unusual/liminal in śikṣā texts',gloss:'A vocalic consonant‑vowel hybrid unique to Sanskrit phonology; treated in the tradition as a "joint" or threshold sound, neither fully vowel nor fully consonant.',rasa:'Used sparingly; adbhuta‑adjacent due to its unusual character',acoustic:'Retroflex tongue curl produces a distinctive, rarer formant pattern — physiologically among the more effortful sounds to articulate precisely.'},
+{ak:'ॠ',iast:'ṝ',grp:'vowel',cakra:'Viśuddha (8/16)',sthana:'Mūrdhanya, lengthened',prayatna:'Long vocalic retroflex',bija:'Lengthened threshold sound',gloss:'Extended form of ṛ; exceedingly rare in actual usage, included for phonological completeness of the mātṛkā set rather than frequent ritual use.',rasa:'Rare; adbhuta',acoustic:'Sustained retroflex articulation; demands and trains fine tongue‑tip motor control.'},
+{ak:'ऌ',iast:'ḷ',grp:'vowel',cakra:'Viśuddha (9/16)',sthana:'Dantya (teeth)',prayatna:'Vocalic dental‑lateral',bija:'Threshold sound, dental class',gloss:'The vocalic counterpart of la; appears almost only in grammatical paradigms (e.g. the root kḷp), included for completeness of the fifty‑two‑fold matrix.',rasa:'Negligible independent rasa use',acoustic:'Lateral airflow around the tongue; trains precise dental‑lateral control.'},
+{ak:'ॡ',iast:'ḹ',grp:'vowel',cakra:'Viśuddha (10/16)',sthana:'Dantya, lengthened',prayatna:'Long vocalic dental‑lateral',bija:'Theoretical completion of the vocalic set',gloss:'The longest, rarest vowel in the inventory, cited by grammarians chiefly to complete the theoretical symmetry of the short/long vowel pairs.',rasa:'None in practice',acoustic:'Almost never sustained in actual recitation; included for systemic completeness.'},
+{ak:'ए',iast:'e',grp:'vowel',cakra:'Viśuddha (11/16)',sthana:'Kaṇṭha‑tālavya (diphthong)',prayatna:'Mid front vowel/diphthong',bija:'Transitional vowel, a+i sandhi product',gloss:'Phonologically a fusion of a and i; read symbolically as the union of root consciousness (a) with will (i), common in benedictory openings ("eṣa," "etat").',rasa:'Used in solemn, invocatory openings; sāttvatī vṛtti',acoustic:'Glide quality between two formant targets; one of the more melodically flexible vowels for chant ornamentation.'},
+{ak:'ऐ',iast:'ai',grp:'vowel',cakra:'Viśuddha (12/16)',sthana:'Kaṇṭha‑tālavya, lengthened diphthong',prayatna:'Open diphthong',bija:'The bīja "aiṁ" — seed of Sarasvatī, speech and learning',gloss:'As the bīja aiṁ, this is the single most important syllable in this set for the present study\'s theme: it is the standard seed‑mantra of Sarasvatī, goddess of vāk (speech) and saṅgīta (music) alike, directly linking this vowel to the entire subject of the resource.',rasa:'Invoked specifically before recitation and musical performance',acoustic:'Wide formant glide; physically one of the most resonant, far‑carrying diphthongs in chant.'},
+{ak:'ओ',iast:'o',grp:'vowel',cakra:'Viśuddha (13/16)',sthana:'Kaṇṭha‑oṣṭhya (diphthong)',prayatna:'Mid back rounded diphthong',bija:'a+u sandhi product; component of Oṁ itself',gloss:'Phonologically a+u fused; this fusion is in fact the etymological root of "Oṁ" (a‑u‑m contracting in rapid utterance toward o‑ṁ), making this vowel structurally inseparable from praṇava.',rasa:'Solemn, grounding; sāttvatī',acoustic:'Rounded back resonance; strong low‑formant energy, felt in chest and sinus.'},
+{ak:'औ',iast:'au',grp:'vowel',cakra:'Viśuddha (14/16)',sthana:'Kaṇṭha‑oṣṭhya, lengthened diphthong',prayatna:'Open back rounded diphthong',bija:'Extended o; appears in exclamatory vocatives',gloss:'The widest diphthong glide in the set; common in exclamatory and wonder‑laden vocative forms.',rasa:'Adbhuta — wonder',acoustic:'Largest formant excursion of any vowel; the most acoustically dramatic single‑syllable glide.'},
+{ak:'अं',iast:'aṃ',grp:'vowel',cakra:'Viśuddha (15/16)',sthana:'Nāsikya (nasal)',prayatna:'Anusvāra — nasalised closure',bija:'Bindu — the point at which sound condenses toward silence',gloss:'Anusvāra, the "bindu," is read throughout Tantra as the symbolic point of maximal condensation of sound — the threshold where the audible (vaikharī) is about to dissolve back into the unstruck. Almost every bīja mantra ends in this nasal hum.',rasa:'The terminal hum of nearly every invocatory bīja',acoustic:'Pure nasal resonance with no oral release; produces the strongest measurable cranial/sinus vibration of any phoneme in the set (see Chapter 2).'},
+{ak:'अः',iast:'aḥ',grp:'vowel',cakra:'Viśuddha (16/16)',sthana:'Kaṇṭhya, breath release',prayatna:'Visarga — voiceless aspiration/breath release',bija:'Symbolic dissolution into outward breath',gloss:'Visarga marks an audible release of breath after the vowel; symbolically read as the point of sound\'s dissolution outward into space, completing the vowel cycle that began with a.',rasa:'Marks closure of invocatory phrases',acoustic:'A brief voiceless [h]-like exhalation; physiologically ties recitation directly to the exhale, reinforcing the paced‑breathing mechanism of Case Study 2.'},
+
+// ===== ANAHATA — ka through tha (varga ka, ca, partial ta) 12 petals =====
+{ak:'क',iast:'ka',grp:'anahata',cakra:'Anāhata (1/12)',sthana:'Kaṇṭhya',prayatna:'Voiceless unaspirated velar stop',bija:'Associated with Kālī‑bīja contexts in some Tantric charts',gloss:'First consonant of the varga system; in several Tantric mātṛkā charts marks the entry point into Anāhata, the heart‑cakra, beginning the consonantal descent from throat toward lips.',rasa:'Ārabhaṭī vṛtti — plosive onset suits forceful registers',acoustic:'Full glottal/velar closure then release; among the more percussive sounds in the inventory.'},
+{ak:'ख',iast:'kha',grp:'anahata',cakra:'Anāhata (2/12)',sthana:'Kaṇṭhya',prayatna:'Voiceless aspirated velar stop',bija:'Aspirated intensification of ka',gloss:'The aspirated counterpart of ka; the added breath‑force is read symbolically as intensification — the same point of articulation given more prāṇa.',rasa:'Raudra — added aspiration intensifies forceful delivery',acoustic:'Stop release followed by an audible burst of air; measurably higher peak airflow than ka.'},
+{ak:'ग',iast:'ga',grp:'anahata',cakra:'Anāhata (3/12)',sthana:'Kaṇṭhya',prayatna:'Voiced unaspirated velar stop',bija:'Gaṇeśa‑bīja contexts ("gaṁ")',gloss:'As the bīja "gaṁ," this is the standard seed‑mantra of Gaṇeśa, invoked at the start of ritual and performance alike — directly relevant to why nāṭya and yajña both conventionally open with this sound.',rasa:'Vīra — grounding, auspicious opening',acoustic:'Voiced stop; vocal‑fold vibration begins during closure, giving a "fuller" onset than the unvoiced ka.'},
+{ak:'घ',iast:'gha',grp:'anahata',cakra:'Anāhata (4/12)',sthana:'Kaṇṭhya',prayatna:'Voiced aspirated velar stop',bija:'Aspirated intensification of ga',gloss:'Aspirated counterpart of ga; rare as an independent bīja, more common in compound ritual formulas.',rasa:'Raudra/vīra blend',acoustic:'Combines voicing with aspiration — among the more complex single consonants to articulate cleanly.'},
+{ak:'ङ',iast:'ṅa',grp:'anahata',cakra:'Anāhata (5/12)',sthana:'Nāsikya + Kaṇṭhya',prayatna:'Velar nasal',bija:'Nasal closure of the ka‑varga',gloss:'The nasal that closes the velar series, structurally paralleling anusvāra\'s role at the end of the vowel series — each varga "returns to the nose" at its terminal letter.',rasa:'Soft transitional tone',acoustic:'Nasal resonance combined with velar closure; rare as an initial sound, common medially.'},
+{ak:'च',iast:'ca',grp:'anahata',cakra:'Anāhata (6/12)',sthana:'Tālavya',prayatna:'Voiceless unaspirated palatal affricate',bija:'Opens the palatal varga',gloss:'First letter of the c‑varga; symbolically continues the descent from kaṇṭha to tālu in the mātṛkā‑nyāsa sequence.',rasa:'Hāsya — crisp palatal onset suits light, quick delivery',acoustic:'Affricate (stop + fricative release); shorter, sharper transient than the velar stops.'},
+{ak:'छ',iast:'cha',grp:'anahata',cakra:'Anāhata (7/12)',sthana:'Tālavya',prayatna:'Voiceless aspirated palatal affricate',bija:'Aspirated intensification of ca',gloss:'Aspirated counterpart of ca; the added breath‑force again read as intensified prāṇa at the same articulatory point.',rasa:'Hāsya, intensified',acoustic:'Audible frication noise dominates the release; acoustically "hissier" than ca.'},
+{ak:'ज',iast:'ja',grp:'anahata',cakra:'Anāhata (8/12)',sthana:'Tālavya',prayatna:'Voiced unaspirated palatal affricate',bija:'Found in some Durgā/Jaya‑related invocatory formulas',gloss:'Root of words for victory and birth (jaya, janma); carries strong auspicious connotation in invocatory openings.',rasa:'Vīra',acoustic:'Voiced affricate; combines vocal‑fold vibration with a brief frication burst.'},
+{ak:'झ',iast:'jha',grp:'anahata',cakra:'Anāhata (9/12)',sthana:'Tālavya',prayatna:'Voiced aspirated palatal affricate',bija:'Rare independent bīja; common in rhythmic bol (e.g. "jham")',gloss:'Rare as a stand‑alone ritual bīja, but extremely prominent in dance — "jham" is one of the most common solkattu/bol syllables marking a strong, percussive landing.',rasa:'Ārabhaṭī, percussive emphasis',acoustic:'High‑energy aspirated affricate; well suited to marking strong rhythmic accents.'},
+{ak:'ञ',iast:'ña',grp:'anahata',cakra:'Anāhata (10/12)',sthana:'Nāsikya + Tālavya',prayatna:'Palatal nasal',bija:'Closes the c‑varga',gloss:'Nasal closure of the palatal series, found in roots related to jñāna (knowledge) via the conjunct jña — see the 52nd letter below.',rasa:'Soft transitional tone',acoustic:'Rare as an isolated initial sound; trains palatal‑nasal coordination.'},
+{ak:'ट',iast:'ṭa',grp:'anahata',cakra:'Anāhata (11/12)',sthana:'Mūrdhanya',prayatna:'Voiceless unaspirated retroflex stop',bija:'Opens the retroflex varga',gloss:'First of the retroflex series; the tongue curls back toward the hard palate, a more effortful articulation than the dental series, traditionally associated with greater force.',rasa:'Ārabhaṭī — retroflex consonants are the classic marker of forceful delivery',acoustic:'Distinctive "hollow" timbre from the retroflex cavity shape; physically demands precise tongue‑tip control.'},
+{ak:'ठ',iast:'ṭha',grp:'anahata',cakra:'Anāhata (12/12)',sthana:'Mūrdhanya',prayatna:'Voiceless aspirated retroflex stop',bija:'Aspirated intensification of ṭa',gloss:'Aspirated counterpart of ṭa, completing the Anāhata cakra\'s twelve petals in this scheme; among the most forceful single sounds in ordinary recitation.',rasa:'Raudra/bībhatsa',acoustic:'Maximal combination of retroflex constriction and aspiration burst among common consonants.'},
+
+// ===== MANIPURA — da through pha 10 petals =====
+{ak:'ड',iast:'ḍa',grp:'manipura',cakra:'Maṇipūra (1/10)',sthana:'Mūrdhanya',prayatna:'Voiced unaspirated retroflex stop',bija:'Continues retroflex series into Maṇipūra',gloss:'Voiced retroflex stop continuing the series begun in ṭa/ṭha; marks transition from the heart‑centred Anāhata petals to the navel‑centred Maṇipūra petals in the nyāsa sequence.',rasa:'Vīra',acoustic:'Voiced retroflex; fuller‑bodied than its unvoiced counterpart ṭa.'},
+{ak:'ढ',iast:'ḍha',grp:'manipura',cakra:'Maṇipūra (2/10)',sthana:'Mūrdhanya',prayatna:'Voiced aspirated retroflex stop',bija:'Aspirated intensification of ḍa',gloss:'Aspirated counterpart of ḍa; relatively rare as an independent ritual syllable, common medially in compound words.',rasa:'Raudra',acoustic:'Combines retroflex constriction, voicing, and aspiration — one of the more articulately demanding consonants.'},
+{ak:'ण',iast:'ṇa',grp:'manipura',cakra:'Maṇipūra (3/10)',sthana:'Nāsikya + Mūrdhanya',prayatna:'Retroflex nasal',bija:'Closes the retroflex varga',gloss:'Nasal closure of the ṭ‑varga; common in Tantric and Vedic terminal forms (e.g. prāṇa, gaṇa).',rasa:'Soft transitional',acoustic:'Retroflex nasal resonance, distinct in timbre from the simple dental/labial nasals.'},
+{ak:'त',iast:'ta',grp:'manipura',cakra:'Maṇipūra (4/10)',sthana:'Dantya',prayatna:'Voiceless unaspirated dental stop',bija:'Among the most frequent consonants in Sanskrit recitation generally',gloss:'Opens the dental varga; structurally the most frequently occurring stop consonant across Vedic and classical Sanskrit, given the density of t‑initial grammatical morphemes.',rasa:'Neutral/bhāratī — carries plain dialogic delivery',acoustic:'Clean dental closure and release; one of the crispest, most easily repeated percussive consonants — the basis of the extremely common bol syllable "ta."'},
+{ak:'थ',iast:'tha',grp:'manipura',cakra:'Maṇipūra (5/10)',sthana:'Dantya',prayatna:'Voiceless aspirated dental stop',bija:'Aspirated intensification of ta',gloss:'Aspirated counterpart of ta; common in rhythmic bol patterns ("dhā," "thaiya") used throughout Bharatanāṭyam and Kathak footwork recitation.',rasa:'Crisp rhythmic emphasis',acoustic:'Strong aspirated burst; a foundational percussive syllable in nṛtta (pure dance) recitation.'},
+{ak:'द',iast:'da',grp:'manipura',cakra:'Maṇipūra (6/10)',sthana:'Dantya',prayatna:'Voiced unaspirated dental stop',bija:'Root of dāna (giving) and related auspicious terms',gloss:'Voiced dental stop; root consonant in words of giving and generosity (dāna, dayā), frequently invoked in benedictory closing formulas.',rasa:'Sāttvatī — balanced, dignified delivery',acoustic:'Voiced dental closure; one of the foundational bol syllables ("dhā," "dhin") anchoring tāla cycles in Hindustani and Carnatic percussion recitation.'},
+{ak:'ध',iast:'dha',grp:'manipura',cakra:'Maṇipūra (7/10)',sthana:'Dantya',prayatna:'Voiced aspirated dental stop',bija:'Root of dhāraṇā (sustained concentration), dharma',gloss:'Carries the root sense of holding/sustaining/supporting (dhṛ — dharma, dhāraṇā); among the most rhythmically important bol syllables, anchoring the principal beat ("dhā") in nearly every tāla system.',rasa:'Sāttvatī, structurally load‑bearing in rhythm cycles',acoustic:'Combines voicing and aspiration; perceptually the "deepest," most grounding percussive syllable in dance recitation.'},
+{ak:'न',iast:'na',grp:'manipura',cakra:'Maṇipūra (8/10)',sthana:'Nāsikya + Dantya',prayatna:'Dental nasal',bija:'Closes the dental varga; root of negation (na)',gloss:'Nasal closure of the t‑varga; also Sanskrit\'s primary negative particle, giving this sound a double symbolic charge of both "closure/completion" and "negation/dissolution."',rasa:'Soft, transitional',acoustic:'Common, easily sustained nasal; frequent in both speech and chant.'},
+{ak:'प',iast:'pa',grp:'manipura',cakra:'Maṇipūra (9/10)',sthana:'Oṣṭhya',prayatna:'Voiceless unaspirated bilabial stop',bija:'Opens the labial varga; root of pavitra (purifying)',gloss:'Opens the labial series, the final varga before the antastha (semivowel) and ūṣma (sibilant) classes; root consonant in words for purification (pavitra, pāvana), tying this phoneme directly to the purificatory aim of homa discussed in Chapter 4.',rasa:'Bhāratī — plain articulate delivery',acoustic:'Bilabial closure; one of the most visually as well as audibly distinct consonants, useful for synchronising group recitation by sight as well as sound.'},
+{ak:'फ',iast:'pha',grp:'manipura',cakra:'Maṇipūra (10/10)',sthana:'Oṣṭhya',prayatna:'Voiceless aspirated bilabial stop',bija:'Aspirated intensification of pa',gloss:'Aspirated counterpart of pa, completing Maṇipūra\'s ten petals in this scheme.',rasa:'Bībhatsa/raudra in forceful contexts',acoustic:'Strong labial aspiration burst, among the most breath‑intensive consonants to articulate repeatedly.'},
+
+// ===== SVADHISHTHANA — ba bha ma ya ra la, 6 petals =====
+{ak:'ब',iast:'ba',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (1/6)',sthana:'Oṣṭhya',prayatna:'Voiced unaspirated bilabial stop',bija:'Root of bala (strength), bandha (binding)',gloss:'Root consonant in words for strength and binding (bala, bandha); marks the entry into Svādhiṣṭhāna, the sacral centre traditionally associated with vital energy and creative force.',rasa:'Vīra',acoustic:'Voiced bilabial closure; among the earliest sounds infants articulate, reflecting its low articulatory demand.'},
+{ak:'भ',iast:'bha',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (2/6)',sthana:'Oṣṭhya',prayatna:'Voiced aspirated bilabial stop',bija:'Root of bhāva (feeling/state) and bhakti (devotion)',gloss:'Root consonant of bhāva and bhakti — directly central to this entire study\'s subject, since bhāva is the technical term for the emotional state that, per Chapter 7, crystallises into rasa.',rasa:'Central to all rasa‑bearing vocabulary',acoustic:'Voiced, aspirated bilabial; warm, full‑bodied timbre frequently used in devotional (bhakti) song openings.'},
+{ak:'म',iast:'ma',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (3/6)',sthana:'Nāsikya + Oṣṭhya',prayatna:'Bilabial nasal',bija:'The third mātrā of Praṇava (A‑U‑M)',gloss:'The third mātrā of Oṁ, associated in the Māṇḍūkya scheme with prājña, the deep‑sleep state, where differentiated consciousness has fully condensed before dissolving into the silent fourth (turīya).',rasa:'Closure, dissolution',acoustic:'Pure nasal hum with lip closure; together with anusvāra, produces the strongest measurable facial/cranial vibration in the inventory (Chapter 2).'},
+{ak:'य',iast:'ya',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (4/6)',sthana:'Tālavya',prayatna:'Palatal semivowel/glide',bija:'Opens the antastha (semivowel) class',gloss:'Opens the four semivowels (antastha), grammatically among the most flexible sounds in sandhi (vowel‑junction) rules — fittingly, since semivowels function as the "glide" connecting vowel and consonant.',rasa:'Smooth connective tone, kaiśikī',acoustic:'Glide articulation, no full closure; acoustically continuous rather than percussive, useful for legato chant phrasing.'},
+{ak:'र',iast:'ra',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (5/6)',sthana:'Mūrdhanya',prayatna:'Retroflex/trilled approximant',bija:'Root of raga, rasa themselves',gloss:'Root consonant shared by both rāga (melodic mode) and rasa (aesthetic emotion) — the two central technical terms of this entire study\'s Chapters 6–8 share this single phoneme at their root.',rasa:'Central to the vocabulary of rasa itself',acoustic:'Trilled/tapped articulation in classical pronunciation; rhythmically active, frequently used for ornamentation (gamaka) in Carnatic vocal music.'},
+{ak:'ल',iast:'la',grp:'svadhishthana',cakra:'Svādhiṣṭhāna (6/6)',sthana:'Dantya',prayatna:'Dental lateral approximant',bija:'Root of līlā (divine play), laya (rhythm/dissolution)',gloss:'Root consonant of laya (rhythmic tempo, and also "dissolution") and līlā (divine play) — binding rhythm and cosmic playfulness at the phonemic root, and completing Svādhiṣṭhāna\'s six petals in this scheme.',rasa:'Hāsya, śṛṅgāra — playful registers',acoustic:'Lateral airflow around the tongue; smooth, sustained, commonly used in melismatic vocal ornamentation.'},
+
+// ===== MULADHARA — va sa sha sa, 4 petals =====
+{ak:'व',iast:'va',grp:'muladhara',cakra:'Mūlādhāra (1/4)',sthana:'Dantoṣṭhya (labio‑dental)',prayatna:'Labio‑dental semivowel',bija:'Root of vāk (speech) itself, and of vāyu (breath/wind)',gloss:'Root consonant of vāk, "speech" — the very subject of this entire resource is etymologically rooted in this single phoneme. Also root of vāyu, the breath/wind element foundational to all recitation.',rasa:'Foundational, present across all registers',acoustic:'Continuant, breath‑adjacent articulation; physically the closest consonant to a sustained airflow sound.'},
+{ak:'श',iast:'śa',grp:'muladhara',cakra:'Mūlādhāra (2/4)',sthana:'Tālavya',prayatna:'Voiceless palatal sibilant',bija:'Root of śabda (sound) and śānti (peace)',gloss:'Root consonant of śabda — "sound" — making this phoneme directly self‑referential to the entire subject of this study, and of śānti, peace, the ninth rasa.',rasa:'Śānta — directly etymologically linked',acoustic:'Soft palatal fricative; among the gentlest, most breath‑like consonants, well suited to sustained, calming recitation.'},
+{ak:'ष',iast:'ṣa',grp:'muladhara',cakra:'Mūlādhāra (3/4)',sthana:'Mūrdhanya',prayatna:'Voiceless retroflex sibilant',bija:'Found in ṣaḍja, the tonic note of Indian classical music',gloss:'Root consonant of ṣaḍja, "Sa," the fixed tonic (drone) note of Indian classical music — the very pitch the tambūrā sustains throughout a performance, discussed in Chapter 7 as the acoustic ground of rasa.',rasa:'Foundational drone association',acoustic:'Retroflex fricative; sharper, more effortful than the palatal śa.'},
+{ak:'स',iast:'sa',grp:'muladhara',cakra:'Mūlādhāra (4/4)',sthana:'Dantya',prayatna:'Voiceless dental sibilant',bija:'Root of saṁskāra, satya, sundara — and the very note "Sa" in solfa',gloss:'Extremely productive root across Sanskrit vocabulary — saṁskāra (refinement/imprint), satya (truth), sundara (beauty); also the name of the Indian solfège tonic note "Sa," completing Mūlādhāra\'s four petals at the very base of the entire system.',rasa:'Foundational across registers',acoustic:'Clean dental fricative; among the most acoustically stable, easily sustained sibilants — the long "ssss" used to settle a room before recitation begins.'},
+
+// ===== AJNA — ha ksha 2 petals =====
+{ak:'ह',iast:'ha',grp:'ajna',cakra:'Ājñā (1/2)',sthana:'Kaṇṭhya',prayatna:'Voiced glottal fricative (breath sound)',bija:'Root of haṁsa (the breath itself, so‑haṁ), havana (oblation)',gloss:'Root of haṁsa, the spontaneous mantra of the breath itself, perceived as continuously self‑repeating with every inhale and exhale, and of havana, the technical term for fire‑oblation discussed in Chapter 4. This phoneme sits at the threshold of pure breath becoming sound.',rasa:'Adbhuta, śānta',acoustic:'Pure glottal friction with minimal oral shaping; the consonant physically closest to unshaped exhalation.'},
+{ak:'क्ष',iast:'kṣa',grp:'ajna',cakra:'Ājñā (2/2)',sthana:'Kaṇṭhya + Mūrdhanya (conjunct)',prayatna:'Conjunct of ka + ṣa',gloss:'Traditionally counted as the fiftieth and final letter of the classical varṇamālā, giving the alphabet itself the name akṣaramālā — "garland from a to kṣa" — and by extension giving this letter, completing Ājñā\'s two petals, the symbolic sense of totality, consummation (kṣaya can mean both "destruction" and "completion").',bija:'Symbol of the alphabet\'s own completion',rasa:'Marks ritual/textual closure',acoustic:'A consonant conjunct requiring precise sequential closure of two distinct articulatory positions in rapid succession.'},
+
+// ===== EXTRA — la (vedic retroflex) + jna, Sahasrara overflow, 2 =====
+{ak:'ळ',iast:'ḷa',grp:'extra',cakra:'Sahasrāra (overflow)',sthana:'Mūrdhanya',prayatna:'Voiced retroflex lateral flap (Vedic)',bija:'Vedic‑recitation‑specific variant',gloss:'A retroflex lateral found chiefly in Ṛgvedic recitation (where intervocalic ḍa is realised as ḷa), preserved in the mātṛkā set as one of the "overflow" letters associated with Sahasrāra, the thousand‑petalled crown cakra said to contain the fifty base letters repeated many times over along with such additional, less common forms.',rasa:'Specialised Vedic recitation contexts',acoustic:'A flapped retroflex lateral, articulatorily distinct from both ḍa and la — a clear case where exact phonetic preservation (Chapter 5) protects a sound that would otherwise have been lost.'},
+{ak:'ज्ञ',iast:'jña',grp:'extra',cakra:'Sahasrāra (overflow)',sthana:'Tālavya (conjunct)',prayatna:'Conjunct of ja + ña',gloss:'Root of jñāna, "knowledge" — the fourth and culminating term of the Kashmir Śaiva triad icchā‑jñāna‑kriyā (will‑knowledge‑action) referenced earlier in this set at the vowel "i." Counted by some lineages as the fifty‑second mātṛkā, completing the set with the very word for sacred knowledge itself.',bija:'Symbol of the alphabet\'s completion in wisdom',rasa:'Closing, contemplative — associated with śānta',acoustic:'A complex initial conjunct, among the more demanding sounds for a learner to articulate correctly — fittingly, since jñāna itself is traditionally described as hard‑won.'},
+];
+
+const grpLabel = {vowel:'स्वर',anahata:'अनाहत',manipura:'मणिपूर',svadhishthana:'स्वाधिष्ठान',muladhara:'मूलाधार',ajna:'आज्ञा',extra:'सहस्रार'};
+
+function renderGrid(filter){
+  const grid = document.getElementById('mgrid');
+  grid.innerHTML = '';
+  M.forEach((m,i)=>{
+    if(filter!=='all' && m.grp!==filter) return;
+    const card = document.createElement('div');
+    card.className='mcard';
+    card.innerHTML = '<span class="ak dn">'+m.ak+'</span><span class="iast">'+m.iast+'</span><span class="grp">'+grpLabel[m.grp]+'</span>';
+    card.addEventListener('click', ()=>openModal(i));
+    grid.appendChild(card);
+  });
+}
+document.querySelectorAll('.mfilter').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.mfilter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid(btn.dataset.grp);
+  });
+});
+renderGrid('all');
+
+function openModal(i){
+  const m = M[i];
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="ak-big dn">${m.ak}</div>
+    <div class="iast-big">${m.iast} · ${grpLabel[m.grp]}</div>
+    <div class="modal-field"><div class="fl">Sthāna · Prayatna</div><div class="fv">${m.sthana} — ${m.prayatna}</div></div>
+    <div class="modal-field"><div class="fl">Cakra / Bīja Correlate</div><div class="fv">${m.cakra}${m.bija? ' · '+m.bija : ''}</div></div>
+    <div class="modal-field"><div class="fl">Tantric & Symbolic Gloss</div><div class="fv">${m.gloss}</div></div>
+    <div class="modal-field"><div class="fl">Nāṭyaśāstric Rasa / Vṛtti Affinity</div><div class="fv">${m.rasa}</div></div>
+    <div class="modal-field"><div class="fl">Acoustic Note</div><div class="fv">${m.acoustic}</div></div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
+document.getElementById('modalOverlay').addEventListener('click', (e)=>{
+  if(e.target.id==='modalOverlay') closeModal();
+});
+</script>
+</body>
+</html>
